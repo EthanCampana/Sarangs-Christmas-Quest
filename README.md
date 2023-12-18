@@ -1,5 +1,3 @@
-
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 # Sarangs-Christmas-Quest
 Godot 4 Xmas GameJam Submission
 
@@ -21,11 +19,13 @@ Ethan - Game Programmer
 
 Angel (Obeja) - Game Programmer
 
-Allan - Game Programmer
+Allan (Elphy) - Game Programmer
 
 Cecilia - Artist
 
 Paloma (rata_ta) - Artist
+
+Ariana (Ari) - Artist (UI & VFX)
 
 Alpha / ariatec (Karl) - Composer 
 
