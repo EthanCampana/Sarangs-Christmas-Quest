@@ -22,8 +22,12 @@ func Physics_Update(delta: float):
 	var direction = player.get_input_direction()
 	if direction:
 		state_machine.transition_to("Walk")
+	if Input.is_action_just_pressed("dash") and player.canDash:
+		state_machine.transition_to("Dash")
 	if Input.is_action_pressed("jump") and player.is_on_floor():
 		state_machine.transition_to("Jump")
+	if player.velocity.y > 0 and not player.is_on_floor():
+		state_machine.transition_to("Fall")
 	player.move_and_slide()
 
 

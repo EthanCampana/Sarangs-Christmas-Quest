@@ -20,7 +20,9 @@ func Physics_Update(delta: float):
 
 	if Input.is_action_pressed("jump") and player.is_on_floor():
 		state_machine.transition_to("Jump")
-	if player.velocity.y >= 0 and not player.is_on_floor():
+	elif Input.is_action_just_pressed("dash") and player.canDash:
+		state_machine.transition_to("Dash")
+	elif player.velocity.y >= 0 and not player.is_on_floor():
 		state_machine.transition_to("Fall")
-	if player.velocity.x == 0:
+	elif player.velocity.x == 0:
 		state_machine.transition_to("Idle")
