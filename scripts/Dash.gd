@@ -27,6 +27,7 @@ func Enter():
 func Exit():
 	air_dash = false
 	dashCooldown.start(player.dashCooldownTime)
+	player.sprite.rotation_degrees = 0
 
 
 # Defines what direction the player will dash in
@@ -40,6 +41,24 @@ func get_dash_direction():
 			direction = -1
 	dash_vector.x = direction
 	dash_vector.y = y_direction
+	if player.sprite.flip_h:
+		if dash_vector.x == 0 and dash_vector.y == 1:
+			player.sprite.rotation_degrees = 90
+		elif dash_vector.x == 0 and dash_vector.y == -1:
+			player.sprite.rotation_degrees = -90
+		elif dash_vector.x == 1 and dash_vector.y == 1:
+			player.sprite.rotation_degrees = 45
+		elif dash_vector.x == 1 and dash_vector.y == -1:
+			player.sprite.rotation_degrees = -45
+	else:
+		if dash_vector.x == 0 and dash_vector.y == 1:
+			player.sprite.rotation_degrees = -90
+		elif dash_vector.x == 0 and dash_vector.y == -1:
+			player.sprite.rotation_degrees = 90
+		elif dash_vector.x == -1 and dash_vector.y == 1:
+			player.sprite.rotation_degrees = -45
+		elif dash_vector.x == -1 and dash_vector.y == -1:
+			player.sprite.rotation_degrees = 45
 
 
 # Defines what happens when the state is updated every frame (Physics related)
@@ -47,6 +66,10 @@ func Physics_Update(delta: float):
 	if is_dashing:
 		player.handle_movement(self, delta)
 		if player.is_on_floor():
+			if air_dash:
+				player.sprite.rotation_degrees = 0
+				if player.velocity.x == 0:
+					state_machine.transition_to("Idle")
 			player.canJump = true
 			if Input.is_action_pressed("jump") and player.is_on_floor():
 				state_machine.transition_to("DashJump")

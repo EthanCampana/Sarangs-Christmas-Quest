@@ -11,6 +11,7 @@ class_name Player
 @export var dashSpeed: int = 350
 @export var dashTime: float = 0.8
 @export var dashCooldownTime: float = 1.0
+@export var cling_time: float = 5.0
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_to_peak) * -1
 @onready
 var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
@@ -24,6 +25,7 @@ var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time
 
 var canJump = true
 var canDash = true
+var canCling = true
 
 const MAX_SPEED = 150
 
@@ -61,7 +63,6 @@ func handle_movement(currentState: PlayerState, delta: float):
 	move_and_slide()
 
 
-
 func _ready():
 	animation_player.play("Idle")
 
@@ -84,3 +85,10 @@ func get_input_direction() -> int:
 	if dir < 0:
 		sprite.flip_h = false
 	return dir
+
+
+func get_wall_cling_direction():
+	if sprite.flip_h:
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false

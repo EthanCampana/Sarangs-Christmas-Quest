@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dxojkv4wlgml1"]
+[gd_scene load_steps=28 format=3 uid="uid://dxojkv4wlgml1"]
 
 [ext_resource type="Texture2D" uid="uid://c3rild6j71jd7" path="res://assets/cat (sarang)/png-cat-iddle.png" id="1_nw6th"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_ojsqd"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/Jump.gd" id="12_nbx88"]
 [ext_resource type="Script" path="res://scripts/Dash.gd" id="14_usie7"]
 [ext_resource type="Script" path="res://scripts/DashJump.gd" id="15_th6bx"]
+[ext_resource type="Script" path="res://scripts/WallCling.gd" id="16_0aive"]
 
 [sub_resource type="Animation" id="Animation_p6mw8"]
 resource_name = "Dash"
@@ -54,18 +55,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [9]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_kp0xh"]
@@ -110,7 +99,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/path = NodePath("Sprite2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -163,7 +152,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/path = NodePath("Sprite2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -212,18 +201,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [2, 3, 4, 5, 6]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_nthsv"]
 resource_name = "Playful_Idle"
@@ -268,7 +245,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/path = NodePath("Sprite2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -319,14 +296,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/path = NodePath("Sprite2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-7, -2)]
+"values": [Vector2(9, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_h338b"]
@@ -368,18 +345,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [12]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:position")
-tracks/3/interp = 0
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-7, 2), Vector2(-23, -4), Vector2(-8, 6), Vector2(9, 3), Vector2(23, -4), Vector2(20, -3), Vector2(21, -3)]
 }
 
 [sub_resource type="Animation" id="Animation_ls0mk"]
@@ -425,7 +390,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/path = NodePath("Sprite2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -475,18 +440,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [6]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape2D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-7, -2)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ygyyk"]
 _data = {
@@ -502,14 +455,14 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccq1p"]
-size = Vector2(23.625, 20.875)
+size = Vector2(23.3333, 20.4167)
 
 [node name="Sarang" type="CharacterBody2D"]
 script = ExtResource("1_ojsqd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, 0)
 texture = ExtResource("1_nw6th")
-flip_h = true
 hframes = 4
 
 [node name="TailSwingPosition" type="Marker2D" parent="."]
@@ -523,7 +476,7 @@ libraries = {
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, -2)
+position = Vector2(0, 0.8125)
 scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_ccq1p")
 
@@ -564,6 +517,12 @@ one_shot = true
 [node name="DashJump" type="Node" parent="StateMachine"]
 script = ExtResource("15_th6bx")
 
+[node name="WallCling" type="Node" parent="StateMachine" node_paths=PackedStringArray("Cling_timer")]
+script = ExtResource("16_0aive")
+Cling_timer = NodePath("WallClingTimer")
+
+[node name="WallClingTimer" type="Timer" parent="StateMachine/WallCling"]
+
 [node name="Label" type="Label" parent="."]
 offset_left = -22.0
 offset_top = -45.0
@@ -577,3 +536,4 @@ zoom = Vector2(1.5, 1.5)
 [connection signal="timeout" from="StateMachine/Idle/Timer" to="StateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashTime" to="StateMachine/Dash" method="on_dashTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashCooldown" to="." method="dash_cooldown_expired"]
+[connection signal="timeout" from="StateMachine/WallCling/WallClingTimer" to="StateMachine/WallCling" method="_on_Cling_timer_timeout"]
