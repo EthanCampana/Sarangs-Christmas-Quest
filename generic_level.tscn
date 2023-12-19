@@ -1,11 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh6y6majp8bdh"]
+[gd_scene load_steps=4 format=3 uid="uid://dh6y6majp8bdh"]
 
+[ext_resource type="PackedScene" uid="uid://dxojkv4wlgml1" path="res://scenes/Sarang.tscn" id="1_cqkgm"]
 [ext_resource type="PackedScene" uid="uid://cas1efp7vr84p" path="res://scenes/tile_map.tscn" id="1_oahd1"]
+[ext_resource type="PackedScene" uid="uid://vc4njew5aqea" path="res://scenes/snow_particle.tscn" id="3_5o2n2"]
 
 [node name="Generic-level" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.25, 1.25)
+[node name="Camera2D2" type="Camera2D" parent="."]
+enabled = false
+zoom = Vector2(0.1, 0.1)
+
+[node name="Sarang" parent="." instance=ExtResource("1_cqkgm")]
+position = Vector2(44, -57)
 
 [node name="TileMap" parent="." instance=ExtResource("1_oahd1")]
 layer_0/tile_data = PackedInt32Array(-2, 0, 0, -1, 65536, 0, -65536, 65536, 0, -65535, 65536, 0, -65534, 65536, 0, -65533, 65536, 0, -65532, 65536, 0, -65531, 65536, 0, -65530, 65536, 0, -65529, 65536, 0, -65528, 65536, 0, -65527, 131072, 0, -65526, 196608, 0, 65534, 0, 1, 131070, 0, 1, 196606, 0, 1, 262142, 0, 1, 65535, 0, 1, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 1, 8, 0, 1, 9, 0, 1, 10, 0, 1, 65546, 0, 1, 131082, 0, 1, 196618, 0, 1, 196617, 0, 1, 196616, 0, 1, 196615, 0, 1, 196614, 0, 1, 196613, 0, 1, 196612, 0, 1, 196611, 0, 1, 196610, 0, 1, 196609, 0, 1, 196608, 0, 1, 262143, 0, 1, 196607, 0, 1, 131071, 0, 1, 65536, 0, 1, 65537, 0, 1, 65538, 0, 1, 65539, 0, 1, 65540, 0, 1, 65541, 0, 1, 65542, 0, 1, 65543, 0, 1, 65544, 0, 1, 65545, 0, 1, 131081, 0, 1, 131080, 0, 1, 131079, 0, 1, 131078, 0, 1, 131077, 0, 1, 131076, 0, 1, 131075, 0, 1, 131074, 0, 1, 131073, 0, 1, 131072, 0, 1)
+
+[node name="Snow-particle" parent="." instance=ExtResource("3_5o2n2")]
+position = Vector2(-21, -145)
