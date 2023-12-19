@@ -516,6 +516,7 @@ flip_h = true
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
 libraries = {
 "": SubResource("AnimationLibrary_ygyyk")
 }
