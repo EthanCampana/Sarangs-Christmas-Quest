@@ -23,8 +23,11 @@ func Physics_Update(delta: float):
 	player.apply_gravity(delta)
 
 	player.handle_movement(self, delta)
+
 	if Input.is_action_just_pressed("dash") and player.canDash:
 		state_machine.transition_to("Dash")
+	elif Input.is_action_just_pressed("ui_up") and player.is_on_wall() and player.canCling:
+		state_machine.transition_to("WallCling")
 	elif prev_position < player.position.y:
 		state_machine.transition_to("Fall")
 	prev_position = player.position.y

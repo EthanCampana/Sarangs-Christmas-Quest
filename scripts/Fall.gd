@@ -31,6 +31,8 @@ func Physics_Update(delta: float):
 
 	if Input.is_action_just_pressed("dash") and player.canDash:
 		state_machine.transition_to("Dash")
+	elif Input.is_action_just_pressed("ui_up") and player.is_on_wall() and player.canCling:
+		state_machine.transition_to("WallCling")
 	elif Input.is_action_just_pressed("jump") and player.canJump:
 		state_machine.transition_to("Jump")
 	elif Input.is_action_just_pressed("jump") and not player.canJump:
@@ -38,6 +40,7 @@ func Physics_Update(delta: float):
 
 	if player.is_on_floor():
 		player.canJump = true
+		player.canCling = true
 		if jumpBuffered:
 			state_machine.transition_to("Jump")
 		elif is_equal_approx(player.velocity.x, 0.0):
