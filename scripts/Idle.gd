@@ -6,18 +6,18 @@ class_name Idle
 
 # Defines what happens when the state is entered
 func Enter():
+	timer.start(10)
 	player.debug_label.text = "Idle"
 	player.animation_player.current_animation = "Idle"
 
 
 # Defines what happens when the state is exited
 func Exit():
-	pass
-
+	timer.stop()
 
 
 # Defines what happens when the state is updated every frame (Physics related)
-func PhysicsUpdate(delta: float):
+func Physics_Update(delta: float):
 	player.apply_gravity(delta)
 	var direction = player.get_input_direction()
 	if direction:
@@ -29,5 +29,3 @@ func PhysicsUpdate(delta: float):
 
 func _on_timer_timeout():
 	player.animation_player.current_animation = "Playful_Idle"
-	await player.animation_player.finished
-	self.Enter()

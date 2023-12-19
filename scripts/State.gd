@@ -21,5 +21,5 @@ func Update(delta: float):
 
 
 # Defines what happens when the state is updated every frame (Physics related)
-func PhysicsUpdate(delta: float):
+func Physics_Update(delta: float):
 	pass
