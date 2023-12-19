@@ -14,16 +14,10 @@ func Exit():
 
 
 # Defines what happens when the state is updated every frame (Physics related)
-func PhysicsUpdate(delta: float):
+func Physics_Update(delta: float):
 	player.apply_gravity(delta)
 
-	var direction = player.get_input_direction()
-	if direction:
-		player.velocity.x *= direction
-	else:
-		player.velocity.x = move_toward(player.velocity.x, 0, 50)
-
-	player.move_and_slide()
+	player.handle_movement(self, delta)
 
 	if player.is_on_floor():
 		if is_equal_approx(player.velocity.x, 0.0):

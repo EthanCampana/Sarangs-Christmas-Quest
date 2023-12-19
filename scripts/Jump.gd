@@ -1,13 +1,14 @@
 extends PlayerState
 class_name Jump
 
-var prev_velocity: float = 0
+var prev_position: float
 
 
 # Defines what happens when the state is entered
 func Enter():
+	prev_position = 999999
 	player.debug_label.text = "Jump"
-	player.animation_player.current_animation = "jump"
+	player.animation_player.current_animation = "Jump"
 	player.canJump = false
 	player.velocity.y = player.jump_velocity
 
@@ -18,16 +19,11 @@ func Exit():
 
 
 # Defines what happens when the state is updated every frame (Physics related)
-func PhysicsUpdate(delta: float):
-	prev_velocity = player.velocity.y
+func Physics_Update(delta: float):
 	player.apply_gravity(delta)
-	if prev_velocity < player.velocity.y:
-		state_machine.transition_to("fall")
 
-	var direction = player.get_input_direction()
-	if direction:
-		player.velocity.x *= direction
-	else:
-		player.velocity.x = move_toward(player.velocity.x, 0, 50)
+	player.handle_movement(self, delta)
 
-	player.move_and_slide()
+	if prev_position < player.position.y:
+		state_machine.transition_to("Fall")
+	prev_position = player.position.y
