@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yr4mbcjr8hdv"
-path="res://.godot/imported/basic-platformer-tileset.png-6851a63bfd7e55eed6bf73d9adeb0325.ctex"
+uid="uid://c3mdta5ntla6h"
+path="res://.godot/imported/rock_ice_alt_tileset_0.png-dc6c5dc0bf697e78ce0604731c574c94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tiles/basic-platformer-tileset.png"
-dest_files=["res://.godot/imported/basic-platformer-tileset.png-6851a63bfd7e55eed6bf73d9adeb0325.ctex"]
+source_file="res://assets/Tiles/rock_ice_alt_tileset_0.png"
+dest_files=["res://.godot/imported/rock_ice_alt_tileset_0.png-dc6c5dc0bf697e78ce0604731c574c94.ctex"]
 
 [params]
 
