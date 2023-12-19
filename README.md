@@ -19,7 +19,7 @@ Ethan - Game Programmer
 
 Angel (Obeja) - Game Programmer
 
-Allan (Elphy) - Game Programmer
+Allan (Ehlpy) - Game Programmer
 
 Cecilia - Artist
 
