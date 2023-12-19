@@ -5,9 +5,12 @@ class_name Player
 @export var jump_time_to_peak: float = 0.5
 @export var jump_time_to_descent: float = 0.5
 @export var ACCELERATION: int = 500
-@export var air_speed: int = 300
+@export var air_speed: int = 100
 @export var air_friction: int = 100
 @export var friction: int = 500
+@export var dashSpeed: int = 350
+@export var dashTime: float = 0.8
+@export var dashCooldownTime: float = 1.0
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_to_peak) * -1
 @onready
 var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
@@ -22,26 +25,41 @@ var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time
 var canJump = true
 var canDash = true
 
-const MAX_SPEED = 200
+const MAX_SPEED = 150
+
+
+func dash_cooldown_expired():
+	canDash = true
 
 
 func handle_movement(currentState: PlayerState, delta: float):
-	var direction = get_input_direction()
-
 	if currentState is Fall or currentState is Jump:
+		var direction = get_input_direction()
 		if direction:
-			velocity.x += air_speed * direction * delta
+			velocity.x = move_toward(velocity.x, direction * MAX_SPEED, air_speed * delta)
 		else:
-			velocity.x = move_toward(velocity.x, 0, air_friction)
-		velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
+			velocity.x = move_toward(velocity.x, 0, air_friction * delta)
+
+	elif currentState is DashJump:
+		var direction = get_input_direction()
+		if direction:
+			velocity.x += move_toward(velocity.x, direction * (MAX_SPEED + 150), air_speed * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0, air_friction * delta)
+		velocity.x = clamp(velocity.x, -(MAX_SPEED + 150), MAX_SPEED + 150)
 
 	if currentState is Walk:
+		var direction = get_input_direction()
 		if direction:
 			velocity.x = move_toward(velocity.x, direction * MAX_SPEED, ACCELERATION * delta)
 		else:
 			velocity.x = move_toward(velocity.x, 0, friction * delta)
 
+	if currentState is Dash:
+		velocity = currentState.dash_vector * dashSpeed
+
 	move_and_slide()
+
 
 
 func _ready():
