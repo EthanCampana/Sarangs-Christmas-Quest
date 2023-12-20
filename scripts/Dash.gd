@@ -17,7 +17,7 @@ func Enter():
 	if not player.is_on_floor():
 		air_dash = true
 	if air_dash:
-		dashTimer.start(0.5)
+		dashTimer.start(player.airDashTime)
 	else:
 		dashTimer.start(player.dashTime)
 	get_dash_direction()
