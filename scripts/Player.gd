@@ -1,17 +1,20 @@
 extends CharacterBody2D
 class_name Player
 
-@export var jump_height: float = 50
+@export var jump_height: float = 48
 @export var jump_time_to_peak: float = 0.5
-@export var jump_time_to_descent: float = 0.5
-@export var ACCELERATION: int = 400
-@export var air_speed: int = 100
-@export var air_friction: int = 75
+@export var jump_time_to_descent: float = 0.4
+@export var ACCELERATION: int = 1000
+@export var air_speed: int = 700
+@export var air_friction: int = 400
 @export var friction: int = 500
-@export var dashSpeed: int = 175
-@export var dashTime: float = 0.3
-@export var dashCooldownTime: float = 1.0
+@export var dashSpeed_x: int = 175
+@export var dashSpeed_y: int = 125
+@export var dashTime: float = 0.5
+@export var airDashTime: float = 0.5
+@export var dashCooldownTime: float = 5.0
 @export var cling_time: float = 5.0
+
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_to_peak) * -1
 @onready
 var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
@@ -45,10 +48,10 @@ func handle_movement(currentState: PlayerState, delta: float):
 	elif currentState is DashJump:
 		var direction = get_input_direction()
 		if direction:
-			velocity.x += move_toward(velocity.x, direction * (MAX_SPEED + 150), air_speed * delta)
+			velocity.x += move_toward(velocity.x, direction * (MAX_SPEED + 50), air_speed * delta)
 		else:
 			velocity.x = move_toward(velocity.x, 0, air_friction * delta)
-		velocity.x = clamp(velocity.x, -(MAX_SPEED + 150), MAX_SPEED + 150)
+		velocity.x = clamp(velocity.x, -(MAX_SPEED + 50), MAX_SPEED + 50)
 
 	if currentState is Walk:
 		var direction = get_input_direction()
@@ -58,7 +61,8 @@ func handle_movement(currentState: PlayerState, delta: float):
 			velocity.x = move_toward(velocity.x, 0, friction * delta)
 
 	if currentState is Dash:
-		velocity = currentState.dash_vector * dashSpeed
+		velocity.x = currentState.dash_vector.x * dashSpeed_x
+		velocity.y = currentState.dash_vector.y * dashSpeed_y
 
 	move_and_slide()
 
@@ -74,7 +78,7 @@ func get_gravity() -> float:
 
 # Applys the gravity to the player's y velocity.
 func apply_gravity(delta: float):
-	velocity.y += fall_gravity * delta
+	velocity.y += get_gravity() * delta
 
 
 # Returns the movement direction of the player movement 1=Right, -1=Left, 0=No movement/ Neutral.
