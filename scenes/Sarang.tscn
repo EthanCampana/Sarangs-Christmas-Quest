@@ -463,6 +463,7 @@ script = ExtResource("1_ojsqd")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(9, 0)
 texture = ExtResource("1_nw6th")
+flip_h = true
 hframes = 4
 
 [node name="TailSwingPosition" type="Marker2D" parent="."]
@@ -531,6 +532,7 @@ offset_bottom = -22.0
 text = "State"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2, 1)
 zoom = Vector2(1.5, 1.5)
 
 [connection signal="timeout" from="StateMachine/Idle/Timer" to="StateMachine/Idle" method="_on_timer_timeout"]
