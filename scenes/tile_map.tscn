@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1pb4shhjh3au"]
+[gd_scene load_steps=6 format=3 uid="uid://c1pb4shhjh3au"]
 
 [ext_resource type="Texture2D" uid="uid://c3mdta5ntla6h" path="res://assets/Tiles/rock_ice_alt_tileset_0.png" id="1_5eo6g"]
 [ext_resource type="PackedScene" uid="uid://dxojkv4wlgml1" path="res://scenes/Sarang.tscn" id="2_ce0m4"]
+[ext_resource type="PackedScene" uid="uid://bo4vs65623xn3" path="res://scenes/UI.tscn" id="2_mx3wh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qn7tp"]
 texture = ExtResource("1_5eo6g")
@@ -161,6 +162,7 @@ rendering_quadrant_size = 8
 format = 2
 layer_0/tile_data = PackedInt32Array(65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 65530, 0, 0, 65529, 0, 0, 9, 0, 0, 65528, 0, 0, 65527, 0, 0, 65526, 0, 0, 65525, 0, 0, 65524, 0, 0, 65523, 0, 0, 65522, 0, 0, 65521, 0, 0, 65520, 0, 0, 65519, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 18, 0, 0, 17, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 65518, 262144, 0, -18, 262144, 0, -65554, 262144, 0, -131090, 262144, 0, -196626, 262144, 0, -262162, 262144, 0, -327698, 262144, 0, -393234, 262144, 0, -458770, 262144, 0, -524306, 262144, 0, -589842, 262144, 0, -655378, 262144, 0, -720914, 262144, 0, -786450, 262144, 0, -851986, 262144, 0, 29, 262144, 0, -65507, 262144, 0, -131043, 262144, 0, -196579, 262144, 0, -262115, 262144, 0, -327651, 262144, 0, -393187, 262144, 0, -458723, 262144, 0, -524259, 262144, 0, -589795, 262144, 0, -655331, 262144, 0, -720867, 262144, 0, -786403, 262144, 0)
 
+[node name="Ui" parent="." instance=ExtResource("2_mx3wh")]
+
 [node name="Sarang" parent="." instance=ExtResource("2_ce0m4")]
 position = Vector2(4, -47)
-dashSpeed = 200

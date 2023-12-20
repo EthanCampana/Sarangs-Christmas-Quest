@@ -14,6 +14,9 @@ func Enter():
 	player.velocity.y = player.jump_velocity
 
 
+func Update(delta: float):
+	player.update_dash_cooldown()
+	
 # Defines what happens when the state is exited
 func Exit():
 	player.jumpHeld = false

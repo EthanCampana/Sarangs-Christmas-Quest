@@ -14,6 +14,11 @@ func Enter():
 	player.velocity.y = player.jump_velocity * 1.1
 
 
+# Defines what happens when the state is updated every frame (Non physics related)
+func Update(delta: float):
+	player.update_dash_cooldown()
+
+
 # Defines what happens when the state is exited
 func Exit():
 	pass

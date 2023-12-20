@@ -12,7 +12,7 @@ class_name Player
 @export var dashSpeed_y: int = 125
 @export var dashTime: float = 0.5
 @export var airDashTime: float = 0.5
-@export var dashCooldownTime: float = 2.0
+@export var dashCooldownTime: float = 5.0
 @export var cling_time: float = 5.0
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_to_peak) * -1
 @onready
@@ -25,19 +25,25 @@ var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
-
 @onready var debug_label: Label = $Label
-
+@onready var climb_bar: TextureProgressBar = $Sprite2D/TextureProgressBar
+@onready var dash_bar: TextureProgressBar = $DashBar
+@onready var dash_timer: Timer = $StateMachine/Dash/DashCooldown
 var canJump = true
 var canDash = true
 var canCling = true
 var jumpHeld = false
-
+var time_left = -1
 const MAX_SPEED = 150
 
 
 func dash_cooldown_expired():
 	canDash = true
+	dash_bar.hide()
+
+
+func update_dash_cooldown():
+	dash_bar.value = dashCooldownTime - dash_timer.time_left
 
 
 func handle_movement(currentState: PlayerState, delta: float):
@@ -72,6 +78,8 @@ func handle_movement(currentState: PlayerState, delta: float):
 
 func _ready():
 	animation_player.play("Idle")
+	dash_bar.max_value = dashCooldownTime
+	climb_bar.max_value = cling_time
 
 
 # Gets the appropriate Gravity to apply to the player.

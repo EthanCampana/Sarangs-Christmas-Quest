@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cs8m017bxej25"]
+[gd_scene load_steps=6 format=3 uid="uid://cs8m017bxej25"]
 
 [ext_resource type="Texture2D" uid="uid://dllwdwcixvq16" path="res://assets/Tiles/tileset.png" id="1_l6cgc"]
 [ext_resource type="PackedScene" uid="uid://dxojkv4wlgml1" path="res://scenes/Sarang.tscn" id="2_e0vng"]
+[ext_resource type="PackedScene" uid="uid://bo4vs65623xn3" path="res://scenes/UI.tscn" id="3_wm7h4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mgk1f"]
 texture = ExtResource("1_l6cgc")
@@ -370,5 +371,5 @@ layer_1/tile_data = PackedInt32Array(393226, 131072, 6, 393227, 131072, 6, 39322
 
 [node name="Sarang" parent="." instance=ExtResource("2_e0vng")]
 position = Vector2(-54, 79)
-air_friction = 400
-dashSpeed = 150
+
+[node name="Ui" parent="." instance=ExtResource("3_wm7h4")]
