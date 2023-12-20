@@ -2,6 +2,7 @@ extends PlayerState
 class_name WallCling
 
 @export var Cling_timer: Timer
+var time_left: float = -1
 
 
 # Defines what happens when the state is entered
@@ -15,13 +16,16 @@ func Enter():
 	player.debug_label.text = "Wall Cling"
 	player.animation_player.current_animation = "Wall_Cling"
 	player.canJump = true
-	player.canCling = false
-	Cling_timer.start(player.cling_time)
+	if time_left > 0:
+		Cling_timer.start(time_left)
+	else:
+		Cling_timer.start(player.cling_time)
 
 
 # Defines what happens when the state is exited
 func Exit():
-	pass
+	Cling_timer.stop()
+	time_left = Cling_timer.time_left
 
 
 # Defines what happens when the state is updated every frame (Physics related)
@@ -38,3 +42,5 @@ func Physics_Update(delta: float):
 
 func _on_Cling_timer_timeout():
 	state_machine.transition_to("Fall")
+	player.canCling = false
+	time_left = -1
