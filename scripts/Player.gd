@@ -12,15 +12,17 @@ class_name Player
 @export var dashSpeed_y: int = 125
 @export var dashTime: float = 0.5
 @export var airDashTime: float = 0.5
-@export var dashCooldownTime: float = 5.0
+@export var dashCooldownTime: float = 2.0
 @export var cling_time: float = 5.0
-
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_to_peak) * -1
 @onready
 var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
 @onready var fall_gravity: float = (
 	((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 )
+
+@onready var variable_jump_gravity: float = ((jump_velocity ** 2) / (2 * jump_height)) * -1
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 
@@ -29,6 +31,7 @@ var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time
 var canJump = true
 var canDash = true
 var canCling = true
+var jumpHeld = false
 
 const MAX_SPEED = 150
 
@@ -73,7 +76,7 @@ func _ready():
 
 # Gets the appropriate Gravity to apply to the player.
 func get_gravity() -> float:
-	return jump_gravity if velocity.y < 0.0 else fall_gravity
+	return jump_gravity if jumpHeld else fall_gravity
 
 
 # Applys the gravity to the player's y velocity.
