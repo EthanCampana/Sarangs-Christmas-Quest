@@ -1,15 +1,15 @@
 extends CharacterBody2D
 class_name Player
 
-@export var jump_height: float = 100
+@export var jump_height: float = 50
 @export var jump_time_to_peak: float = 0.5
 @export var jump_time_to_descent: float = 0.5
-@export var ACCELERATION: int = 500
+@export var ACCELERATION: int = 400
 @export var air_speed: int = 100
-@export var air_friction: int = 100
+@export var air_friction: int = 75
 @export var friction: int = 500
-@export var dashSpeed: int = 350
-@export var dashTime: float = 0.8
+@export var dashSpeed: int = 175
+@export var dashTime: float = 0.3
 @export var dashCooldownTime: float = 1.0
 @export var cling_time: float = 5.0
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_to_peak) * -1
