@@ -10,7 +10,6 @@ func _ready():
 func _input(event):
 	if event is InputEventKey and not scene_changing:
 		scene_changing = true
-		animation_player.stop()
 	
 
 func start_fading_animation():
@@ -20,6 +19,8 @@ func start_fading_animation():
 
 
 func _on_animation_player_animation_finished(anim_name):
-	print('entered')
 	if anim_name == "fadeLoop":
-		get_tree().change_scene_to_file("res://scenes/Level_1.tscn")
+		if scene_changing:
+			get_tree().change_scene_to_file("res://scenes/Level_1.tscn")
+		else:
+			start_fading_animation()
