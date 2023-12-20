@@ -533,7 +533,7 @@ text = "State"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, 1)
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2.2, 2.2)
 
 [connection signal="timeout" from="StateMachine/Idle/Timer" to="StateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashTime" to="StateMachine/Dash" method="on_dashTimer_timeout"]
