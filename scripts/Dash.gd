@@ -46,7 +46,7 @@ func get_dash_direction():
 			player.sprite.rotation_degrees = 90
 		elif dash_vector.x == 0 and dash_vector.y == -1:
 			player.sprite.rotation_degrees = -90
-		elif dash_vector.x == 1 and dash_vector.y == 1:
+		elif dash_vector.x == 1 and dash_vector.y == 1 and air_dash:
 			player.sprite.rotation_degrees = 45
 		elif dash_vector.x == 1 and dash_vector.y == -1:
 			player.sprite.rotation_degrees = -45
@@ -55,7 +55,7 @@ func get_dash_direction():
 			player.sprite.rotation_degrees = -90
 		elif dash_vector.x == 0 and dash_vector.y == -1:
 			player.sprite.rotation_degrees = 90
-		elif dash_vector.x == -1 and dash_vector.y == 1:
+		elif dash_vector.x == -1 and dash_vector.y == 1 and air_dash:
 			player.sprite.rotation_degrees = -45
 		elif dash_vector.x == -1 and dash_vector.y == -1:
 			player.sprite.rotation_degrees = 45
