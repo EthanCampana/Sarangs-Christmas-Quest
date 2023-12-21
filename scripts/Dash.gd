@@ -11,6 +11,8 @@ var dash_vector: Vector2 = Vector2.ZERO
 # Defines what happens when the state is entered
 func Enter():
 	player.canDash = false
+	player.audio.stream = player.cat_dash.pick_random()
+	player.audio.play()
 	is_dashing = true
 	player.debug_label.text = "Dash"
 	player.animation_player.current_animation = "Dash"

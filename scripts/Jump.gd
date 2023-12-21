@@ -8,6 +8,11 @@ var prev_position: float
 func Enter():
 	player.jumpHeld = true
 	prev_position = 999999
+	if player.sprite.flip_h:
+		player.audio.stream = player.cat_jump_right.pick_random()
+	else:
+		player.audio.stream = player.cat_jump_left.pick_random()
+	player.audio.play()
 	player.debug_label.text = "Jump"
 	player.animation_player.current_animation = "Jump"
 	player.canJump = false

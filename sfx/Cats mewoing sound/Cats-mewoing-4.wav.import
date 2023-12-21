@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cuww2vk8r20up"
+path="res://.godot/imported/Cats-mewoing-4.wav-dd195a2239fb47a1cf7a4d2fb375cf70.sample"
+
+[deps]
+
+source_file="res://sfx/Cats mewoing sound/Cats-mewoing-4.wav"
+dest_files=["res://.godot/imported/Cats-mewoing-4.wav-dd195a2239fb47a1cf7a4d2fb375cf70.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
