@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://b883oy2ewyu21"]
 
 [ext_resource type="Texture2D" uid="uid://3myxt5cvxf6i" path="res://assets/Candy-level/background/lvl1-sky.png" id="1_xxmwn"]
-[ext_resource type="Script" path="res://plax.gd" id="2_or7nl"]
+[ext_resource type="Script" path="res://scripts/plax.gd" id="2_or7nl"]
 [ext_resource type="Texture2D" uid="uid://cupulgrw7qu38" path="res://assets/Candy-level/background/lvl1-back-candy.png" id="3_rehgt"]
 [ext_resource type="Texture2D" uid="uid://ceheys2vcp6nn" path="res://assets/Candy-level/background/lvl1-back-montains.png" id="4_bjqjs"]
 [ext_resource type="Texture2D" uid="uid://bi8223jkoq4jp" path="res://assets/Candy-level/background/lvl1-clouds.png" id="5_8uuf0"]
 [ext_resource type="Texture2D" uid="uid://ob5bvlgdai1f" path="res://assets/Candy-level/background/lvl1-front-candy.png" id="6_g3wtj"]
 [ext_resource type="Texture2D" uid="uid://2oc5ywt3erph" path="res://assets/Candy-level/background/lvl1-front-clouds.png" id="7_6jycv"]
 [ext_resource type="Texture2D" uid="uid://dac3dpuylut65" path="res://assets/Candy-level/background/lvl1-moon.png" id="8_bhsgn"]
-[ext_resource type="PackedScene" uid="uid://cs8m017bxej25" path="res://level_creator.tscn" id="9_t7qw6"]
+[ext_resource type="PackedScene" uid="uid://cs8m017bxej25" path="res://scenes/level_creator.tscn" id="9_t7qw6"]
 [ext_resource type="PackedScene" uid="uid://dxojkv4wlgml1" path="res://scenes/Sarang.tscn" id="9_u70hk"]
 
 [node name="Main" type="Node2D"]

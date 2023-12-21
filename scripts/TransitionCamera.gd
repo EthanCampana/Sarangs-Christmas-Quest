@@ -1,6 +1,6 @@
 extends Camera2D
 
-const SCREEN_SIZE := Vector2(320, 180)
+const SCREEN_SIZE := Vector2(640, 360)
 var cur_screen := Vector2(0, 0)
 
 
