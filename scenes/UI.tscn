@@ -13,20 +13,22 @@ script = ExtResource("1_ob2qo")
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 799.0
-offset_bottom = 598.0
+offset_right = 640.0
+offset_bottom = 359.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -64.5
-offset_right = 65.5
+offset_left = -65.0
+offset_right = 65.0
 offset_bottom = 104.0
 grow_horizontal = 2
 
 [node name="Time" type="Label" parent="Control/HBoxContainer"]
 layout_mode = 2
-text = "Time : xxx"
+size_flags_horizontal = 0
+text = "Time : xxx
+"
 label_settings = SubResource("LabelSettings_4f0gn")
