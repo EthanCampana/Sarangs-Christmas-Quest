@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1pb4shhjh3au"]
+[gd_scene load_steps=9 format=3 uid="uid://c1pb4shhjh3au"]
 
 [ext_resource type="Texture2D" uid="uid://c3mdta5ntla6h" path="res://assets/Tiles/rock_ice_alt_tileset_0.png" id="1_5eo6g"]
 [ext_resource type="PackedScene" uid="uid://dxojkv4wlgml1" path="res://scenes/Sarang.tscn" id="2_ce0m4"]
 [ext_resource type="PackedScene" uid="uid://bo4vs65623xn3" path="res://scenes/UI.tscn" id="2_mx3wh"]
+[ext_resource type="PackedScene" uid="uid://b6dlyabsm2dg0" path="res://scenes/BackgroundAudioManager.tscn" id="4_ka6au"]
+[ext_resource type="AudioStream" uid="uid://d0q6y0211dmq1" path="res://bgm/Forest/Forest_Preloop.wav" id="5_bd6gd"]
+[ext_resource type="AudioStream" uid="uid://ecruwcc43sni" path="res://bgm/Forest/Forest_Loop.wav" id="6_psocq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qn7tp"]
 texture = ExtResource("1_5eo6g")
@@ -166,16 +169,7 @@ layer_0/tile_data = PackedInt32Array(65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0,
 
 [node name="Sarang" parent="." instance=ExtResource("2_ce0m4")]
 position = Vector2(4, -47)
-jump_height = 48.0
-jump_time_to_peak = 0.5
-jump_time_to_descent = 0.4
-ACCELERATION = 1000
-air_speed = 700
-air_friction = 400
-friction = 500
-dashSpeed_x = 175
-dashSpeed_y = 125
-dashTime = 0.5
-airDashTime = 0.5
-dashCooldownTime = 5.0
-cling_time = 5.0
+
+[node name="BackgroundAudioManager" parent="." instance=ExtResource("4_ka6au")]
+PreLoopFile = ExtResource("5_bd6gd")
+LoopFile = ExtResource("6_psocq")

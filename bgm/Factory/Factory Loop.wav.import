@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7h8bw6ekwjr0"
+path="res://.godot/imported/Factory Loop.wav-482a056befcafa7256090c436ab865db.sample"
+
+[deps]
+
+source_file="res://bgm/Factory/Factory Loop.wav"
+dest_files=["res://.godot/imported/Factory Loop.wav-482a056befcafa7256090c436ab865db.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
