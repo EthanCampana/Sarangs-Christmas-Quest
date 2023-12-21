@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3j20s2s1boao"
+path="res://.godot/imported/cat-jump-LR-2.wav-ff2cb0492a2db9328be78ed3d18f3807.sample"
+
+[deps]
+
+source_file="res://sfx/Cat jump left to right/cat-jump-LR-2.wav"
+dest_files=["res://.godot/imported/cat-jump-LR-2.wav-ff2cb0492a2db9328be78ed3d18f3807.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

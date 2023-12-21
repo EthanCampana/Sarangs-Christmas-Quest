@@ -6,14 +6,17 @@ class_name Walk
 func Enter():
 	player.debug_label.text = "Walk"
 	player.animation_player.current_animation = "Walk"
+	player.audio_second.stream = player.cat_step.pick_random()
+	player.audio_second.play()
 
 
 func Update(delta: float):
 	player.update_dash_cooldown()
-	
+
+
 # Defines what happens when the state is exited
 func Exit():
-	pass
+	player.audio_second.stop()
 
 
 # Defines what happens when the state is updated every frame (Physics related)
@@ -29,3 +32,8 @@ func Physics_Update(delta: float):
 		state_machine.transition_to("Fall")
 	elif player.velocity.x == 0:
 		state_machine.transition_to("Idle")
+
+
+func _on_cat_second_audio_finished():
+	player.audio_second.stream = player.cat_step.pick_random()
+	player.audio_second.play()

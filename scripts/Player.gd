@@ -31,6 +31,13 @@ var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time
 @onready var dash_timer: Timer = $StateMachine/Dash/DashCooldown
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
+@onready var audio: AudioStreamPlayer = $CatAudio
+@onready var audio_second: AudioStreamPlayer = $CatSecondAudio
+@export var cat_dash: Array[AudioStream]
+@export var cat_step: Array[AudioStream]
+@export var cat_meow: Array[AudioStream]
+@export var cat_jump_left: Array[AudioStream]
+@export var cat_jump_right: Array[AudioStream]
 var canJump = true
 var canDash = true
 var canCling = true

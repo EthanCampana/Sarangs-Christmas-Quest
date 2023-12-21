@@ -2,6 +2,7 @@ extends PlayerState
 class_name Idle
 
 @onready var timer: Timer = $Timer
+var meowClock: int = 0
 
 
 # Defines what happens when the state is entered
@@ -13,6 +14,12 @@ func Enter():
 
 # Defines what happens when the state is updated every frame (Non physics related)
 func Update(delta: float):
+	if meowClock == 300:
+		meowClock = 0
+		player.audio.stream = player.cat_meow.pick_random()
+		player.audio.play()
+	else:
+		meowClock += 1
 	player.update_dash_cooldown()
 
 
