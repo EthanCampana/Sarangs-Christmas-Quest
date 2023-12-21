@@ -22,8 +22,8 @@ SceneTransition="*res://UI/scene_transition.tscn"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=600
+window/size/viewport_width=640
+window/size/viewport_height=360
 window/size/window_height_override=600
 window/stretch/mode="canvas_items"
 
@@ -54,7 +54,13 @@ dash={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_2="player"
+2d_render/layer_3="damaging-obstacles"
+2d_render/layer_4="interactible-objects"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.764706, 0.8, 1, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

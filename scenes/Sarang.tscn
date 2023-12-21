@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scripts/Dash.gd" id="14_usie7"]
 [ext_resource type="Script" path="res://scripts/DashJump.gd" id="15_th6bx"]
 [ext_resource type="Script" path="res://scripts/WallCling.gd" id="16_0aive"]
+[ext_resource type="Script" path="res://scenes/Camera2D.gd" id="17_jmy6k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ee6vl"]
 atlas = ExtResource("4_bo4gg")
@@ -576,8 +577,11 @@ offset_bottom = -22.0
 text = "State"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position = Vector2(2, 1)
 scale = Vector2(1, 0.885946)
+position_smoothing_enabled = true
+script = ExtResource("17_jmy6k")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 rotation = 1.5708
