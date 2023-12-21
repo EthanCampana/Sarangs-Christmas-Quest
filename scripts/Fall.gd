@@ -11,7 +11,11 @@ func Enter():
 	bufferWindow = 0
 	player.debug_label.text = "Fall"
 	player.animation_player.current_animation = "Fall"
-	CoyoteTime.start(1)
+	CoyoteTime.start(0.3)
+
+
+func Update(delta: float):
+	player.update_dash_cooldown()
 
 
 # Defines what happens when the state is exited
@@ -31,7 +35,7 @@ func Physics_Update(delta: float):
 
 	if Input.is_action_just_pressed("dash") and player.canDash:
 		state_machine.transition_to("Dash")
-	elif Input.is_action_just_pressed("ui_up") and player.is_on_wall() and player.canCling:
+	elif Input.is_action_just_pressed("ui_up") and player.ray_cast_check() and player.canCling:
 		state_machine.transition_to("WallCling")
 	elif Input.is_action_just_pressed("jump") and player.canJump:
 		state_machine.transition_to("Jump")
@@ -39,6 +43,7 @@ func Physics_Update(delta: float):
 		jumpBuffered = true
 
 	if player.is_on_floor():
+		player.time_left = -1
 		player.canJump = true
 		player.canCling = true
 		if jumpBuffered:

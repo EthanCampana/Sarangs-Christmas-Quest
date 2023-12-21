@@ -8,6 +8,9 @@ func Enter():
 	player.animation_player.current_animation = "Walk"
 
 
+func Update(delta: float):
+	player.update_dash_cooldown()
+	
 # Defines what happens when the state is exited
 func Exit():
 	pass

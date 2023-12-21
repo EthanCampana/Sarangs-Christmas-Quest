@@ -14,27 +14,42 @@ class_name Player
 @export var airDashTime: float = 0.5
 @export var dashCooldownTime: float = 5.0
 @export var cling_time: float = 5.0
-
 @onready var jump_velocity: float = ((2.0 * jump_height) / jump_time_to_peak) * -1
 @onready
 var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1
 @onready var fall_gravity: float = (
 	((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
 )
+
+@onready var variable_jump_gravity: float = ((jump_velocity ** 2) / (2 * jump_height)) * -1
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
-
 @onready var debug_label: Label = $Label
-
+@onready var climb_bar: TextureProgressBar = $Sprite2D/TextureProgressBar
+@onready var dash_bar: TextureProgressBar = $DashBar
+@onready var dash_timer: Timer = $StateMachine/Dash/DashCooldown
+@onready var ray_cast_left: RayCast2D = $RayCastLeft
+@onready var ray_cast_right: RayCast2D = $RayCastRight
 var canJump = true
 var canDash = true
 var canCling = true
-
+var jumpHeld = false
+var time_left = -1
 const MAX_SPEED = 150
+
+
+func ray_cast_check() -> bool:
+	return ray_cast_left.is_colliding() or ray_cast_right.is_colliding()
 
 
 func dash_cooldown_expired():
 	canDash = true
+	dash_bar.hide()
+
+
+func update_dash_cooldown():
+	dash_bar.value = dashCooldownTime - dash_timer.time_left
 
 
 func handle_movement(currentState: PlayerState, delta: float):
@@ -69,11 +84,13 @@ func handle_movement(currentState: PlayerState, delta: float):
 
 func _ready():
 	animation_player.play("Idle")
+	dash_bar.max_value = dashCooldownTime
+	climb_bar.max_value = cling_time
 
 
 # Gets the appropriate Gravity to apply to the player.
 func get_gravity() -> float:
-	return jump_gravity if velocity.y < 0.0 else fall_gravity
+	return jump_gravity if jumpHeld else fall_gravity
 
 
 # Applys the gravity to the player's y velocity.

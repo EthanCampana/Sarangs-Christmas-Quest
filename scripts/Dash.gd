@@ -26,8 +26,9 @@ func Enter():
 # Defines what happens when the state is exited
 func Exit():
 	air_dash = false
-	dashCooldown.start(player.dashCooldownTime)
 	player.sprite.rotation_degrees = 0
+	player.dash_bar.show()
+	dashCooldown.start(player.dashCooldownTime)
 
 
 # Defines what direction the player will dash in
