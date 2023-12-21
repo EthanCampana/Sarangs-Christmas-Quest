@@ -1,9 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://dxojkv4wlgml1"]
+[gd_scene load_steps=34 format=3 uid="uid://dxojkv4wlgml1"]
 
 [ext_resource type="Texture2D" uid="uid://c3rild6j71jd7" path="res://assets/cat (sarang)/png-cat-iddle.png" id="1_nw6th"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_ojsqd"]
 [ext_resource type="Texture2D" uid="uid://jk28esgtkc4b" path="res://assets/cat (sarang)/png-cat-playful_iddle.png" id="2_nkt6o"]
+[ext_resource type="Texture2D" uid="uid://chs0l256gapa3" path="res://assets/ui/All.png" id="3_qbjvm"]
 [ext_resource type="Texture2D" uid="uid://did6lqbw0akyi" path="res://assets/cat (sarang)/png-cat-walking.png" id="3_ttac4"]
+[ext_resource type="Texture2D" uid="uid://ds65ln671xm7u" path="res://assets/ui/06.png" id="4_bo4gg"]
 [ext_resource type="Texture2D" uid="uid://kibu14x37y11" path="res://assets/cat (sarang)/png-cat-dash.png" id="4_whx2v"]
 [ext_resource type="Texture2D" uid="uid://blr0361xlr14m" path="res://assets/cat (sarang)/png-cat-wall_side_catch.png" id="5_28rew"]
 [ext_resource type="Texture2D" uid="uid://p3cuo72cpnv5" path="res://assets/cat (sarang)/png-cat-swinging.png" id="6_anmj5"]
@@ -16,6 +18,22 @@
 [ext_resource type="Script" path="res://scripts/Dash.gd" id="14_usie7"]
 [ext_resource type="Script" path="res://scripts/DashJump.gd" id="15_th6bx"]
 [ext_resource type="Script" path="res://scripts/WallCling.gd" id="16_0aive"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee6vl"]
+atlas = ExtResource("4_bo4gg")
+region = Rect2(161, 3, 30, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17jwv"]
+atlas = ExtResource("4_bo4gg")
+region = Rect2(1, 3, 30, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i58ta"]
+atlas = ExtResource("3_qbjvm")
+region = Rect2(710, 199, 4, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4480"]
+atlas = ExtResource("3_qbjvm")
+region = Rect2(630, 199, 4, 33)
 
 [sub_resource type="Animation" id="Animation_p6mw8"]
 resource_name = "Dash"
@@ -459,12 +477,52 @@ size = Vector2(23.3333, 20.4167)
 
 [node name="Sarang" type="CharacterBody2D"]
 script = ExtResource("1_ojsqd")
+jump_height = null
+jump_time_to_peak = null
+jump_time_to_descent = null
+ACCELERATION = null
+air_speed = null
+air_friction = null
+friction = null
+dashSpeed_x = null
+dashSpeed_y = null
+dashTime = null
+airDashTime = null
+dashCooldownTime = null
+cling_time = null
+
+[node name="DashBar" type="TextureProgressBar" parent="."]
+visible = false
+offset_left = -8.0
+offset_top = -25.0
+offset_right = 22.0
+offset_bottom = -15.0
+scale = Vector2(0.5, 0.5)
+texture_under = SubResource("AtlasTexture_ee6vl")
+texture_progress = SubResource("AtlasTexture_17jwv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(9, 0)
 texture = ExtResource("1_nw6th")
 flip_h = true
 hframes = 4
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Sprite2D"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -10.0
+offset_right = -11.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+value = 50.0
+fill_mode = 3
+texture_under = SubResource("AtlasTexture_i58ta")
+texture_progress = SubResource("AtlasTexture_g4480")
 
 [node name="TailSwingPosition" type="Marker2D" parent="."]
 position = Vector2(1, -17)
@@ -525,6 +583,7 @@ Cling_timer = NodePath("WallClingTimer")
 [node name="WallClingTimer" type="Timer" parent="StateMachine/WallCling"]
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -22.0
 offset_top = -45.0
 offset_right = 18.0

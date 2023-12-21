@@ -13,6 +13,8 @@ func Enter():
 	player.animation_player.current_animation = "Fall"
 	CoyoteTime.start(1)
 
+func Update(delta: float):
+	player.update_dash_cooldown()
 
 # Defines what happens when the state is exited
 func Exit():
@@ -39,6 +41,7 @@ func Physics_Update(delta: float):
 		jumpBuffered = true
 
 	if player.is_on_floor():
+		player.time_left = -1
 		player.canJump = true
 		player.canCling = true
 		if jumpBuffered:

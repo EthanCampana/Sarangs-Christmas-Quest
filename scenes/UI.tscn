@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo4vs65623xn3"]
+
+[ext_resource type="Script" path="res://scripts/UIController.gd" id="1_ob2qo"]
+[ext_resource type="FontFile" uid="uid://bwuttgnbfsd5m" path="res://assets/font/fibberish.ttf" id="2_ge8qm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4f0gn"]
+font = ExtResource("2_ge8qm")
+font_size = 30
+
+[node name="Ui" type="CanvasLayer"]
+script = ExtResource("1_ob2qo")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 799.0
+offset_bottom = 598.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.5
+offset_right = 65.5
+offset_bottom = 104.0
+grow_horizontal = 2
+
+[node name="Time" type="Label" parent="Control/HBoxContainer"]
+layout_mode = 2
+text = "Time : xxx"
+label_settings = SubResource("LabelSettings_4f0gn")

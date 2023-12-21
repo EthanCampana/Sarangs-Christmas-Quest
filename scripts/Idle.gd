@@ -11,6 +11,11 @@ func Enter():
 	player.animation_player.current_animation = "Idle"
 
 
+# Defines what happens when the state is updated every frame (Non physics related)
+func Update(delta: float):
+	player.update_dash_cooldown()
+
+
 # Defines what happens when the state is exited
 func Exit():
 	timer.stop()
