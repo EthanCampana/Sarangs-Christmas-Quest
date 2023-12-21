@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://vtr14epdcyro"]
+
+[ext_resource type="Script" path="res://scripts/Present.gd" id="1_dcvat"]
+[ext_resource type="Script" path="res://scripts/CollectableComponent.gd" id="1_lw82k"]
+[ext_resource type="Texture2D" uid="uid://dllwdwcixvq16" path="res://assets/Tiles/tileset.png" id="2_5wqcy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52rd8"]
+atlas = ExtResource("2_5wqcy")
+region = Rect2(49, 33, 14, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ib58c"]
+radius = 8.01561
+
+[node name="Present" type="Node2D"]
+script = ExtResource("1_dcvat")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_52rd8")
+
+[node name="CollectableComponent" type="Area2D" parent="." node_paths=PackedStringArray("item")]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_lw82k")
+item = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_ib58c")

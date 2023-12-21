@@ -477,19 +477,6 @@ size = Vector2(23.3333, 20.4167)
 
 [node name="Sarang" type="CharacterBody2D"]
 script = ExtResource("1_ojsqd")
-jump_height = null
-jump_time_to_peak = null
-jump_time_to_descent = null
-ACCELERATION = null
-air_speed = null
-air_friction = null
-friction = null
-dashSpeed_x = null
-dashSpeed_y = null
-dashTime = null
-airDashTime = null
-dashCooldownTime = null
-cling_time = null
 
 [node name="DashBar" type="TextureProgressBar" parent="."]
 visible = false
@@ -583,7 +570,6 @@ Cling_timer = NodePath("WallClingTimer")
 [node name="WallClingTimer" type="Timer" parent="StateMachine/WallCling"]
 
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_left = -22.0
 offset_top = -45.0
 offset_right = 18.0
@@ -593,6 +579,14 @@ text = "State"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(2, 1)
 zoom = Vector2(2.2, 2.2)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+rotation = 1.5708
+target_position = Vector2(6.99382e-07, 16)
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+rotation = -1.5708
+target_position = Vector2(-6.99382e-07, 16)
 
 [connection signal="timeout" from="StateMachine/Idle/Timer" to="StateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashTime" to="StateMachine/Dash" method="on_dashTimer_timeout"]
