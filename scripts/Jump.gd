@@ -16,7 +16,8 @@ func Enter():
 
 func Update(delta: float):
 	player.update_dash_cooldown()
-	
+
+
 # Defines what happens when the state is exited
 func Exit():
 	player.jumpHeld = false
@@ -33,7 +34,7 @@ func Physics_Update(delta: float):
 
 	if Input.is_action_just_pressed("dash") and player.canDash:
 		state_machine.transition_to("Dash")
-	elif Input.is_action_just_pressed("ui_up") and player.is_on_wall() and player.canCling:
+	elif Input.is_action_just_pressed("ui_up") and player.ray_cast_check() and player.canCling:
 		state_machine.transition_to("WallCling")
 	elif prev_position < player.position.y:
 		state_machine.transition_to("Fall")

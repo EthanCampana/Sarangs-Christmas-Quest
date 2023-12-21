@@ -29,12 +29,18 @@ var jump_gravity: float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time
 @onready var climb_bar: TextureProgressBar = $Sprite2D/TextureProgressBar
 @onready var dash_bar: TextureProgressBar = $DashBar
 @onready var dash_timer: Timer = $StateMachine/Dash/DashCooldown
+@onready var ray_cast_left: RayCast2D = $RayCastLeft
+@onready var ray_cast_right: RayCast2D = $RayCastRight
 var canJump = true
 var canDash = true
 var canCling = true
 var jumpHeld = false
 var time_left = -1
 const MAX_SPEED = 150
+
+
+func ray_cast_check() -> bool:
+	return ray_cast_left.is_colliding() or ray_cast_right.is_colliding()
 
 
 func dash_cooldown_expired():

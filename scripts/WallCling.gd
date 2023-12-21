@@ -2,12 +2,14 @@ extends PlayerState
 class_name WallCling
 
 @export var Cling_timer: Timer
+var cling_frames_before_jump = 0
 
 
 # Defines what happens when the state is entered
 func Enter():
+	cling_frames_before_jump = 0
 	player.climb_bar.show()
-	if player.sprite.flip_h:
+	if player.ray_cast_right.is_colliding():
 		player.sprite.flip_h = false
 		player.sprite.position.x = -5
 		player.climb_bar.position.x = -5
@@ -17,7 +19,6 @@ func Enter():
 		player.climb_bar.position.x = 5
 	player.debug_label.text = "Wall Cling"
 	player.animation_player.current_animation = "Wall_Cling"
-	player.canJump = true
 	if player.time_left > 0:
 		Cling_timer.start(player.time_left)
 	else:
@@ -33,13 +34,16 @@ func Exit():
 
 # Defines what happens when the state is updated every frame (Non physics related)
 func Update(delta: float):
+	cling_frames_before_jump += 1
+	if cling_frames_before_jump > 25:
+		player.canJump = true
 	player.climb_bar.value = Cling_timer.time_left
 	player.update_dash_cooldown()
 
 
 # Defines what happens when the state is updated every frame (Physics related)
 func Physics_Update(delta: float):
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("jump") and player.canJump:
 		state_machine.transition_to("Jump")
 	elif Input.is_action_pressed("dash"):
 		state_machine.transition_to("Dash")
