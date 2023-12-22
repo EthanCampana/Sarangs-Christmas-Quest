@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://4rb0rdewp5ar"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_k4ap1"]
-[ext_resource type="PackedScene" uid="uid://dx77uo4na7wpe" path="res://level_creator.tscn" id="2_a21fu"]
+[ext_resource type="PackedScene" uid="uid://cs8m017bxej25" path="res://scenes/level_creator.tscn" id="2_a21fu"]
 
 [sub_resource type="Animation" id="Animation_gmllr"]
 length = 0.001

@@ -35,3 +35,7 @@ func transition_to(target_state: String):
 	current_state = states.get(target_state.to_lower())
 	states[current_state.name.to_lower()].Enter()
 	emit_signal("transitioned", current_state.name)
+
+
+func _on_sarang_change_state(stateName: String):
+	transition_to(stateName)
