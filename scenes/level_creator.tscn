@@ -691,7 +691,7 @@ offset_right = 640.0
 offset_bottom = 483.0
 scale = Vector2(0.990564, 0.688176)
 pivot_offset = Vector2(608, 130)
-texture = ExtResource("3_4g8hk")
+texture = ExtResource("3_3g0jm")
 expand_mode = 1
 
 [node name="TextureRect6" type="TextureRect" parent="Candy background"]
@@ -708,7 +708,7 @@ offset_right = 1315.0
 offset_bottom = 946.0
 scale = Vector2(0.378015, 0.346743)
 pivot_offset = Vector2(608, 130)
-texture = ExtResource("4_4m8fp")
+texture = ExtResource("6_ju2nk")
 expand_mode = 1
 
 [node name="TextureRect7" type="TextureRect" parent="Candy background"]
@@ -717,7 +717,7 @@ offset_top = 2.0
 offset_right = 640.0
 offset_bottom = 360.0
 pivot_offset = Vector2(608, 130)
-texture = ExtResource("5_vx37j")
+texture = ExtResource("5_ghe2w")
 expand_mode = 1
 
 [node name="TextureRect5" type="TextureRect" parent="Candy background"]
