@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dxojkv4wlgml1"]
+[gd_scene load_steps=36 format=3 uid="uid://dxojkv4wlgml1"]
 
 [ext_resource type="Texture2D" uid="uid://c3rild6j71jd7" path="res://assets/cat (sarang)/png-cat-iddle.png" id="1_nw6th"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_ojsqd"]
@@ -52,6 +52,12 @@ region = Rect2(710, 199, 4, 33)
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4480"]
 atlas = ExtResource("3_qbjvm")
 region = Rect2(630, 199, 4, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bm3ej"]
+size = Vector2(20, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccq1p"]
+size = Vector2(23.3333, 20.4167)
 
 [sub_resource type="Animation" id="Animation_p6mw8"]
 resource_name = "Dash"
@@ -490,9 +496,6 @@ _data = {
 "Wall_Cling": SubResource("Animation_kuaec")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccq1p"]
-size = Vector2(23.3333, 20.4167)
-
 [node name="Sarang" type="CharacterBody2D"]
 script = ExtResource("1_ojsqd")
 cat_dash = Array[AudioStream]([ExtResource("2_5j1vy"), ExtResource("3_2jpy0"), ExtResource("4_f4w45")])
@@ -538,15 +541,24 @@ texture_progress = SubResource("AtlasTexture_g4480")
 position = Vector2(1, -17)
 gizmo_extents = 0.0
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="collision-objects" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_bm3ej")
+
+[node name="collision-tiles" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.8125)
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_ccq1p")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ygyyk")
 }
 autoplay = "Idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.9, 0.9)
-shape = SubResource("RectangleShape2D_ccq1p")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("8_cwnwb")
@@ -598,6 +610,11 @@ offset_right = 18.0
 offset_bottom = -22.0
 text = "State"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2, 1)
+position_smoothing_enabled = true
+script = ExtResource("17_jmy6k")
+
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 rotation = 1.5708
 target_position = Vector2(4.70599e-05, 13)
@@ -611,6 +628,7 @@ volume_db = -5.0
 
 [node name="CatSecondAudio" type="AudioStreamPlayer" parent="."]
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="StateMachine/Idle/Timer" to="StateMachine/Idle" method="_on_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashTime" to="StateMachine/Dash" method="on_dashTimer_timeout"]
 [connection signal="timeout" from="StateMachine/Dash/DashCooldown" to="." method="dash_cooldown_expired"]
