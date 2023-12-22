@@ -113,3 +113,9 @@ func get_wall_cling_direction():
 		sprite.flip_h = true
 	else:
 		sprite.flip_h = false
+
+
+func _on_area_2d_body_entered(body):
+	#if body.is_in_group("damaging_tiles"):
+	print("works")
+	queue_free()

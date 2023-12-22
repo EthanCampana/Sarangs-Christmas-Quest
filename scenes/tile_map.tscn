@@ -166,16 +166,3 @@ layer_0/tile_data = PackedInt32Array(65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0,
 
 [node name="Sarang" parent="." instance=ExtResource("2_ce0m4")]
 position = Vector2(4, -47)
-jump_height = 48.0
-jump_time_to_peak = 0.5
-jump_time_to_descent = 0.4
-ACCELERATION = 1000
-air_speed = 700
-air_friction = 400
-friction = 500
-dashSpeed_x = 175
-dashSpeed_y = 125
-dashTime = 0.5
-airDashTime = 0.5
-dashCooldownTime = 5.0
-cling_time = 5.0
