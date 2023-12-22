@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dxojkv4wlgml1"]
+[gd_scene load_steps=53 format=3 uid="uid://sjllwpj08xxg"]
 
 [ext_resource type="Texture2D" uid="uid://c3rild6j71jd7" path="res://assets/cat (sarang)/png-cat-iddle.png" id="1_nw6th"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_ojsqd"]
@@ -609,11 +609,6 @@ offset_top = -45.0
 offset_right = 18.0
 offset_bottom = -22.0
 text = "State"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2, 1)
-position_smoothing_enabled = true
-script = ExtResource("17_jmy6k")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 rotation = 1.5708
