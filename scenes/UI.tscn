@@ -1,11 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo4vs65623xn3"]
+[gd_scene load_steps=7 format=3 uid="uid://bo4vs65623xn3"]
 
 [ext_resource type="Script" path="res://scripts/UIController.gd" id="1_ob2qo"]
 [ext_resource type="FontFile" uid="uid://bwuttgnbfsd5m" path="res://assets/font/fibberish.ttf" id="2_ge8qm"]
+[ext_resource type="Texture2D" uid="uid://bbc707631unwl" path="res://assets/collectables/gift1.png" id="3_pegnv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4f0gn"]
 font = ExtResource("2_ge8qm")
 font_size = 30
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s7sl"]
+atlas = ExtResource("3_pegnv")
+region = Rect2(0, 0, 18, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_clk1h"]
+font = ExtResource("2_ge8qm")
 
 [node name="Ui" type="CanvasLayer"]
 script = ExtResource("1_ob2qo")
@@ -23,12 +31,31 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -65.0
 offset_right = 65.0
-offset_bottom = 104.0
+offset_bottom = 50.0
 grow_horizontal = 2
 
 [node name="Time" type="Label" parent="Control/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 6
 text = "Time : xxx
 "
 label_settings = SubResource("LabelSettings_4f0gn")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+offset_left = 9.0
+offset_right = 54.0
+offset_bottom = 30.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_8s7sl")
+
+[node name="Presents" type="Label" parent="Control/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "0
+"
+label_settings = SubResource("LabelSettings_clk1h")

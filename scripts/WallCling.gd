@@ -45,7 +45,7 @@ func Update(delta: float):
 func Physics_Update(delta: float):
 	if Input.is_action_pressed("jump") and player.canJump:
 		state_machine.transition_to("Jump")
-	elif Input.is_action_pressed("dash"):
+	elif Input.is_action_pressed("dash") and player.canDash:
 		state_machine.transition_to("Dash")
 	elif !player.sprite.flip_h and Input.is_action_just_pressed("move_left"):
 		state_machine.transition_to("Fall")

@@ -45,6 +45,8 @@ var jumpHeld = false
 var time_left = -1
 const MAX_SPEED = 150
 
+signal change_state(stateName: String)
+
 
 func ray_cast_check() -> bool:
 	return ray_cast_left.is_colliding() or ray_cast_right.is_colliding()
