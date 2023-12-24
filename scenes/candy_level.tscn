@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnmyr84jjldgg"]
+[gd_scene load_steps=23 format=3 uid="uid://cnmyr84jjldgg"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_8in7g"]
-[ext_resource type="PackedScene" uid="uid://ca4wrwgojdw07" path="res://level_creator.tscn" id="2_jxo75"]
+[ext_resource type="PackedScene" uid="uid://rn0u0nyik4od" path="res://level_creator.tscn" id="2_jxo75"]
 [ext_resource type="PackedScene" uid="uid://bo4vs65623xn3" path="res://scenes/UI.tscn" id="2_nuyw8"]
-[ext_resource type="PackedScene" path="res://scenes/BackgroundAudioManager.tscn" id="3_ek4wx"]
+[ext_resource type="PackedScene" uid="uid://b6dlyabsm2dg0" path="res://scenes/BackgroundAudioManager.tscn" id="3_ek4wx"]
 [ext_resource type="Texture2D" uid="uid://3myxt5cvxf6i" path="res://assets/Candy-level/background/lvl1-sky.png" id="3_gj036"]
-[ext_resource type="PackedScene" uid="uid://dxojkv4wlgml1" path="res://scenes/Sarang.tscn" id="3_k3wbi"]
+[ext_resource type="PackedScene" uid="uid://sjllwpj08xxg" path="res://scenes/Sarang.tscn" id="3_k3wbi"]
 [ext_resource type="Texture2D" uid="uid://dac3dpuylut65" path="res://assets/Candy-level/background/lvl1-moon.png" id="4_565tj"]
 [ext_resource type="AudioStream" uid="uid://mtaqqnjokioa" path="res://bgm/Candy/Candy_Preloop.wav" id="4_rxxqg"]
 [ext_resource type="Script" path="res://scripts/TransitionCamera.gd" id="4_v4d7s"]
@@ -32,9 +32,14 @@ font_size = 15
 font_color = Color(0.87451, 0, 0.223529, 1)
 outline_size = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n73fa"]
+size = Vector2(20, 47)
+
 [node name="Candy-Level" type="Node"]
 script = ExtResource("1_8in7g")
 LevelTime = 400
+nextLevel = "res://scenes/ForestWorld/MainLevel.tscn"
+currentLevel = "res://scenes/candy_level.tscn"
 
 [node name="UI Stuff" type="Node2D" parent="."]
 
@@ -760,5 +765,14 @@ text = "A quick jump + Dash might just help you to work in tight spaces... Try i
 
 "
 label_settings = SubResource("LabelSettings_yoqsi")
+
+[node name="Exit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(-638, 493.5)
+shape = SubResource("RectangleShape2D_n73fa")
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
+[connection signal="area_entered" from="Exit" to="." method="_on_exit_area_entered"]
 
 [editable path="level-creator"]
