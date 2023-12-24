@@ -18,7 +18,8 @@ size = Vector2(559.75, 210)
 
 [node name="FactoryLevel" type="Node2D"]
 script = ExtResource("1_lkbii")
-LevelTime = 10
+LevelTime = 100
+currentLevel = "res://scenes/factory_level.tscn"
 
 [node name="UI Stuff" type="Node2D" parent="."]
 
@@ -60,3 +61,5 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pit Detection2"]
 position = Vector2(990.125, 419)
 shape = SubResource("RectangleShape2D_iams4")
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
