@@ -11,7 +11,6 @@ func _on_area_entered(area: Area2D):
 	if item is Present:
 		UiManager.emit_signal("item_collected", 1)
 		GameStats.presents +=1
-	if item is Anvil:
+	else:
 		UiManager.emit_signal("item_collected", 5)
-		GameStats.presents +=5
-		
+		GameStats.presents += 5

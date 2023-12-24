@@ -1,10 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://l8ihte418sva"]
+[gd_scene load_steps=22 format=3 uid="uid://l8ihte418sva"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_mittc"]
 [ext_resource type="PackedScene" uid="uid://bo4vs65623xn3" path="res://scenes/UI.tscn" id="1_wixjl"]
-[ext_resource type="PackedScene" uid="uid://b6dlyabsm2dg0" path="res://scenes/BackgroundAudioManager.tscn" id="2_x3aik"]
+[ext_resource type="PackedScene" path="res://scenes/BackgroundAudioManager.tscn" id="2_x3aik"]
 [ext_resource type="AudioStream" uid="uid://d0q6y0211dmq1" path="res://bgm/Forest/Forest_Preloop.wav" id="3_5a7cp"]
-[ext_resource type="PackedScene" uid="uid://sjllwpj08xxg" path="res://scenes/Sarang.tscn" id="3_n16fl"]
+[ext_resource type="PackedScene" uid="uid://dxojkv4wlgml1" path="res://scenes/Sarang.tscn" id="3_n16fl"]
 [ext_resource type="PackedScene" uid="uid://cyh5ucse1mfk" path="res://scenes/ForestWorld/Section1.tscn" id="3_u0nk6"]
 [ext_resource type="PackedScene" uid="uid://cjneodg1d17l1" path="res://scenes/ForestWorld/Section2.tscn" id="4_25ucl"]
 [ext_resource type="AudioStream" uid="uid://ecruwcc43sni" path="res://bgm/Forest/Forest_Loop.wav" id="4_tx37j"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/TransitionCamera.gd" id="6_ougr3"]
 [ext_resource type="PackedScene" uid="uid://c4ejvs8py4aej" path="res://scenes/ForestWorld/Section3.tscn" id="7_euskn"]
 [ext_resource type="PackedScene" uid="uid://dvo04brkdj4nd" path="res://scenes/Snow-Particle.tscn" id="12_5oveg"]
+[ext_resource type="PackedScene" uid="uid://bs6t3qrrdg7qa" path="res://scenes/Anvil.tscn" id="13_5o63s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jvbm8"]
 size = Vector2(227.5, 13)
@@ -64,8 +65,11 @@ position = Vector2(1290, 0)
 [node name="Section4" parent="." instance=ExtResource("6_gcvku")]
 position = Vector2(1946, 0)
 
+[node name="Anvil" parent="." instance=ExtResource("13_5o63s")]
+position = Vector2(2009, 294)
+
 [node name="Sarang" parent="." instance=ExtResource("3_n16fl")]
-position = Vector2(145, 297)
+position = Vector2(65, 270)
 
 [node name="Camera2D" type="Camera2D" parent="Sarang"]
 script = ExtResource("6_ougr3")

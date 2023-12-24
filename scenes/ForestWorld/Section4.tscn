@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b0uyt8qbcvrnx" path="res://assets/forest-level/3-lvl2-Clouds.png" id="6_korsv"]
 [ext_resource type="Texture2D" uid="uid://d0v1syuetr2wy" path="res://assets/forest-level/8-lvl2-Front_trees.png" id="7_5fwdp"]
 [ext_resource type="PackedScene" uid="uid://b7tldwbnyarnt" path="res://scenes/ForestWorld/ForestTileMap.tscn" id="8_ca0dr"]
-[ext_resource type="PackedScene" uid="uid://bocw4k2ksyygw" path="res://scenes/hazardTileSet.tscn" id="9_0umpi"]
+[ext_resource type="PackedScene" path="res://scenes/hazardTileSet.tscn" id="9_0umpi"]
 [ext_resource type="PackedScene" uid="uid://vtr14epdcyro" path="res://scenes/Present.tscn" id="10_y7n36"]
 
 [node name="Section4" type="Node2D"]
@@ -77,9 +77,6 @@ layer_0/tile_data = PackedInt32Array(-458784, 65536, 0, -393248, 65536, 1, -3277
 
 [node name="HazardTileMap" parent="." instance=ExtResource("9_0umpi")]
 position = Vector2(-24.5878, 287.749)
-
-[node name="Present" parent="." instance=ExtResource("10_y7n36")]
-position = Vector2(62, 293)
 
 [node name="Present2" parent="." instance=ExtResource("10_y7n36")]
 position = Vector2(412, 145)

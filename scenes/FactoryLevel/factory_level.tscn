@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwa3gkt34q1o3"]
+[gd_scene load_steps=14 format=3 uid="uid://bwa3gkt34q1o3"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_j7jrb"]
 [ext_resource type="PackedScene" uid="uid://bo4vs65623xn3" path="res://scenes/UI.tscn" id="2_hug6v"]
-[ext_resource type="PackedScene" uid="uid://b6dlyabsm2dg0" path="res://scenes/BackgroundAudioManager.tscn" id="3_8ju1g"]
+[ext_resource type="PackedScene" path="res://scenes/BackgroundAudioManager.tscn" id="3_8ju1g"]
 [ext_resource type="AudioStream" uid="uid://svq08j1b22e2" path="res://bgm/Factory/Factory_Preloop.wav" id="4_qdpuk"]
 [ext_resource type="AudioStream" uid="uid://b7h8bw6ekwjr0" path="res://bgm/Factory/Factory Loop.wav" id="5_uhxmw"]
 [ext_resource type="PackedScene" uid="uid://ch5aqxphlgpss" path="res://scenes/FactoryLevel/section2.tscn" id="6_artb6"]
 [ext_resource type="PackedScene" uid="uid://cdqmcmvqi43sq" path="res://scenes/FactoryLevel/section1.tscn" id="7_fw2hw"]
-[ext_resource type="PackedScene" uid="uid://sjllwpj08xxg" path="res://scenes/Sarang.tscn" id="8_3djhm"]
+[ext_resource type="PackedScene" uid="uid://dxojkv4wlgml1" path="res://scenes/Sarang.tscn" id="8_3djhm"]
 [ext_resource type="Script" path="res://scripts/TransitionCamera.gd" id="9_q3i03"]
+[ext_resource type="PackedScene" uid="uid://bs6t3qrrdg7qa" path="res://scenes/Anvil.tscn" id="10_lf5jx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msqmv"]
 size = Vector2(613, 198.5)
@@ -16,9 +17,13 @@ size = Vector2(613, 198.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iams4"]
 size = Vector2(559.75, 210)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtw18"]
+size = Vector2(69, 81.5)
+
 [node name="FactoryLevel" type="Node2D"]
 script = ExtResource("1_j7jrb")
 LevelTime = 80
+nextLevel = "res://scenes/gameover.tscn"
 currentLevel = "res://scenes/factory_level.tscn"
 
 [node name="UI Stuff" type="Node2D" parent="."]
@@ -62,4 +67,15 @@ collision_mask = 2
 position = Vector2(990.125, 419)
 shape = SubResource("RectangleShape2D_iams4")
 
+[node name="Anvil" parent="." instance=ExtResource("10_lf5jx")]
+position = Vector2(748, 77)
+
+[node name="Exit" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(1321, 280)
+shape = SubResource("RectangleShape2D_wtw18")
+
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
+[connection signal="area_entered" from="Exit" to="." method="_on_exit_area_entered"]
