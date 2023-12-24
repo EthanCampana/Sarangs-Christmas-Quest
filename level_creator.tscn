@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ca4wrwgojdw07"]
+[gd_scene load_steps=14 format=3 uid="uid://rn0u0nyik4od"]
 
 [ext_resource type="Texture2D" uid="uid://dllwdwcixvq16" path="res://assets/Tiles/tileset.png" id="1_l6cgc"]
 [ext_resource type="Texture2D" uid="uid://yc4idwx1hfa1" path="res://assets/Candy-level/Level1-Tiles.png" id="2_ql435"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dac3dpuylut65" path="res://assets/Candy-level/background/lvl1-moon.png" id="5_sotab"]
 [ext_resource type="Texture2D" uid="uid://ob5bvlgdai1f" path="res://assets/Candy-level/background/lvl1-front-candy.png" id="6_ju2nk"]
 [ext_resource type="Texture2D" uid="uid://bi8223jkoq4jp" path="res://assets/Candy-level/background/lvl1-clouds.png" id="7_s1sdo"]
-[ext_resource type="PackedScene" uid="uid://dvo04brkdj4nd" path="res://scenes/Snow-Particle.tscn" id="9_47q0q"]
+[ext_resource type="PackedScene" uid="uid://douyo5tkymiln" path="res://scenes/Snow-Particle.tscn" id="9_47q0q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mgk1f"]
 texture = ExtResource("1_l6cgc")

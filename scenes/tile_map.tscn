@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c1pb4shhjh3au"]
 
 [ext_resource type="Texture2D" uid="uid://c3mdta5ntla6h" path="res://assets/Tiles/rock_ice_alt_tileset_0.png" id="1_5eo6g"]
-[ext_resource type="PackedScene" uid="uid://dxojkv4wlgml1" path="res://scenes/Sarang.tscn" id="2_ce0m4"]
+[ext_resource type="PackedScene" uid="uid://sjllwpj08xxg" path="res://scenes/Sarang.tscn" id="2_ce0m4"]
 [ext_resource type="PackedScene" uid="uid://bo4vs65623xn3" path="res://scenes/UI.tscn" id="2_mx3wh"]
 [ext_resource type="PackedScene" uid="uid://b6dlyabsm2dg0" path="res://scenes/BackgroundAudioManager.tscn" id="4_ka6au"]
 [ext_resource type="AudioStream" uid="uid://d0q6y0211dmq1" path="res://bgm/Forest/Forest_Preloop.wav" id="5_bd6gd"]

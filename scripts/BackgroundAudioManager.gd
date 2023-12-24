@@ -4,7 +4,7 @@ class_name BackgroudAudioManager
 @export var PreLoopFile: AudioStream
 @export var LoopFile: AudioStream
 @onready var PreLoop: AudioStreamPlayer = $PreLoop
-@onready var Loop: AudioStreamPlayer = $PreLoop
+@onready var Loop: AudioStreamPlayer = $Loop
 
 
 func _ready():

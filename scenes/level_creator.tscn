@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://douyo5tkymiln" path="res://scenes/Snow-Particle.tscn" id="8_on2dd"]
 [ext_resource type="Texture2D" uid="uid://dllwdwcixvq16" path="res://assets/Tiles/tileset.png" id="9_pp0xg"]
 [ext_resource type="Texture2D" uid="uid://yc4idwx1hfa1" path="res://assets/Candy-level/Level1-Tiles.png" id="10_3xcej"]
-[ext_resource type="PackedScene" uid="uid://dxojkv4wlgml1" path="res://scenes/Sarang.tscn" id="11_hruxq"]
+[ext_resource type="PackedScene" uid="uid://sjllwpj08xxg" path="res://scenes/Sarang.tscn" id="11_hruxq"]
 [ext_resource type="Script" path="res://scripts/TransitionCamera.gd" id="12_doqso"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mgk1f"]

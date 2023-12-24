@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bo4vs65623xn3" path="res://scenes/UI.tscn" id="1_wixjl"]
 [ext_resource type="PackedScene" uid="uid://b6dlyabsm2dg0" path="res://scenes/BackgroundAudioManager.tscn" id="2_x3aik"]
 [ext_resource type="AudioStream" uid="uid://d0q6y0211dmq1" path="res://bgm/Forest/Forest_Preloop.wav" id="3_5a7cp"]
-[ext_resource type="PackedScene" uid="uid://dxojkv4wlgml1" path="res://scenes/Sarang.tscn" id="3_n16fl"]
+[ext_resource type="PackedScene" uid="uid://sjllwpj08xxg" path="res://scenes/Sarang.tscn" id="3_n16fl"]
 [ext_resource type="PackedScene" uid="uid://cyh5ucse1mfk" path="res://scenes/ForestWorld/Section1.tscn" id="3_u0nk6"]
 [ext_resource type="PackedScene" uid="uid://cjneodg1d17l1" path="res://scenes/ForestWorld/Section2.tscn" id="4_25ucl"]
 [ext_resource type="AudioStream" uid="uid://ecruwcc43sni" path="res://bgm/Forest/Forest_Loop.wav" id="4_tx37j"]
