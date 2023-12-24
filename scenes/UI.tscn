@@ -37,7 +37,7 @@ grow_horizontal = 2
 [node name="Time" type="Label" parent="Control/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "Time : xxx
+text = "
 "
 label_settings = SubResource("LabelSettings_4f0gn")
 

@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://cjneodg1d17l1"]
+
+[ext_resource type="Texture2D" uid="uid://d0fqpdmoedbxu" path="res://assets/forest-level/1-lvl2-sky.png" id="1_oit6o"]
+[ext_resource type="Texture2D" uid="uid://c1j1i0c6k2yxa" path="res://assets/forest-level/2-lvl2-Sun.png" id="2_hpdx3"]
+[ext_resource type="Texture2D" uid="uid://cltocon0pgoxm" path="res://assets/forest-level/4-lvl2-Montains.png" id="3_b2gkl"]
+[ext_resource type="Texture2D" uid="uid://drb74ayos7inj" path="res://assets/forest-level/6-lvl2-Far_trees.png" id="4_ds14j"]
+[ext_resource type="Texture2D" uid="uid://cw1wkwvufk6kj" path="res://assets/forest-level/5-lvl2-Lake.png" id="4_x55el"]
+[ext_resource type="Texture2D" uid="uid://d0v1syuetr2wy" path="res://assets/forest-level/8-lvl2-Front_trees.png" id="5_ex0cp"]
+[ext_resource type="PackedScene" uid="uid://b7tldwbnyarnt" path="res://scenes/ForestWorld/ForestTileMap.tscn" id="6_ywtvw"]
+[ext_resource type="PackedScene" uid="uid://vtr14epdcyro" path="res://scenes/Present.tscn" id="8_tf4xj"]
+
+[node name="Section2" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+scale = Vector2(1.58498, 0.96748)
+
+[node name="1-lvl2-sky" type="Sprite2D" parent="Background"]
+position = Vector2(206.627, 174.681)
+scale = Vector2(0.407266, 0.682185)
+texture = ExtResource("1_oit6o")
+
+[node name="2-lvl2-sun" type="Sprite2D" parent="Background"]
+position = Vector2(201.895, 150.908)
+scale = Vector2(0.396791, 0.751092)
+texture = ExtResource("2_hpdx3")
+
+[node name="4-lvl2-montains" type="Sprite2D" parent="Background"]
+position = Vector2(201.264, 147.807)
+scale = Vector2(0.394943, 1.03361)
+texture = ExtResource("3_b2gkl")
+
+[node name="6-lvl2-farTrees" type="Sprite2D" parent="Background"]
+position = Vector2(203.315, 109.563)
+scale = Vector2(0.402028, 1.03361)
+texture = ExtResource("4_ds14j")
+
+[node name="6-lvl2-farTrees3" type="Sprite2D" parent="Background"]
+position = Vector2(207.258, 146.773)
+scale = Vector2(0.390014, 1.03361)
+texture = ExtResource("4_ds14j")
+
+[node name="6-lvl2-farTrees2" type="Sprite2D" parent="Background"]
+position = Vector2(200.87, 172.613)
+scale = Vector2(0.398485, 1.01294)
+texture = ExtResource("4_ds14j")
+
+[node name="5-lvl2-lake" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(201.264, 46.5126)
+scale = Vector2(0.395559, 0.95437)
+texture = ExtResource("4_x55el")
+
+[node name="8-lvl2-frontTrees" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(192.432, 81.6555)
+scale = Vector2(0.421437, 1.03361)
+texture = ExtResource("5_ex0cp")
+
+[node name="ForestTileMap" parent="." instance=ExtResource("6_ywtvw")]
+position = Vector2(499.776, 167.916)
+layer_0/tile_data = PackedInt32Array(851938, 65536, 1, 786403, 65536, 1, 720867, 65536, 1, 786404, 65536, 1, 851939, 65536, 1, 786405, 65536, 1, 786406, 65536, 1, 786408, 65536, 1, 786409, 65536, 5, 786410, 65536, 5, 786411, 131072, 1, 720875, 131072, 1, 720874, 65536, 1, 720869, 65536, 1, 720873, 65536, 1, 720872, 65536, 1, 720870, 65536, 1, 851947, 131072, 1, 851946, 65536, 1, 851945, 65536, 1, 851944, 65536, 1, 851943, 65536, 1, 851942, 65536, 1, 851940, 65536, 1, 720866, 65536, 1, 786402, 65536, 1, 851941, 65536, 1, 720868, 65536, 1, 720871, 65536, 1, 786407, 65536, 1, 720890, 0, 1, 720891, 65536, 1, 720892, 65536, 1, 655367, 65536, 1, 786439, 65536, 1, 786438, 65536, 1, 786437, 65536, 1, 786436, 65536, 1, 786435, 65536, 1, 786434, 65536, 1, 786433, 65536, 1, 786432, 65536, 1, 851967, 65536, 1, 851966, 65536, 1, 851962, 0, 1, 786426, 0, 1, 655360, 65536, 1, 786431, 65536, 1, 655361, 65536, 1, 655362, 65536, 1, 655363, 65536, 1, 655364, 65536, 1, 655365, 65536, 1, 655366, 65536, 1, 720903, 65536, 1, 720902, 65536, 1, 720901, 65536, 1, 720900, 65536, 1, 720899, 65536, 1, 720898, 65536, 1, 720897, 65536, 1, 720896, 65536, 1, 720894, 65536, 1, 720893, 65536, 1, 720895, 65536, 1, 655368, 65536, 1, 720904, 65536, 1, 786440, 65536, 1, 655331, 65536, 0, 655332, 65536, 0, 655333, 65536, 0, 655334, 65536, 0, 655335, 65536, 0, 655336, 65536, 0, 655330, 65536, 0, 655337, 65536, 0, 655338, 65536, 0, 655339, 131072, 0, 655355, 65536, 1, 655356, 65536, 1, 589827, 65536, 0, 589828, 65536, 0, 589826, 65536, 0, 589825, 65536, 0, 589824, 65536, 0, 655359, 65536, 0, 655358, 65536, 1, 655357, 65536, 1, 589829, 65536, 0, 589830, 65536, 0, 589831, 65536, 0, 589832, 65536, 0, 851963, 65536, 1, 786427, 65536, 1, 786428, 65536, 1, 786429, 65536, 1, 851965, 65536, 1, 851964, 65536, 1, 786430, 65536, 1, 786412, 0, 3, 786413, 0, 3, 786414, 0, 3, 720878, 65536, 2, 720877, 65536, 2, 720876, 65536, 2, 851948, 262144, 3, 851949, 262144, 3, 851950, 131072, 3, 655340, 65536, 2, 655342, 131072, 2, 655341, 65536, 2, 655344, 0, 0, 720880, 0, 1, 786416, 0, 1, 851952, 0, 1, 655343, 0, 2, 720879, 0, 2, 786415, 131072, 3, 851951, 131072, 3, 655329, 65536, 0, 720865, 65536, 1, 786401, 65536, 1, 851937, 65536, 1, 655328, 65536, 0, 720864, 65536, 1, 786400, 65536, 1, 851936, 65536, 1, 720881, 131072, 1, 786417, 131072, 1, 851953, 131072, 1, 655345, 131072, 0, 655346, 0, 2, 655347, 0, 2, 655348, 0, 2, 655349, 0, 2, 655351, 0, 2, 655352, 0, 2, 655353, 0, 2, 720889, 0, 2, 720888, 0, 2, 720887, 0, 2, 720885, 0, 2, 720884, 0, 2, 720883, 0, 2, 720882, 0, 2, 786418, 0, 3, 851954, 0, 3, 851955, 0, 3, 851956, 0, 3, 786420, 0, 3, 786419, 0, 3, 786423, 0, 3, 786424, 0, 3, 786425, 0, 3, 851961, 0, 3, 851960, 0, 3, 851959, 0, 3, 851958, 0, 3, 851957, 0, 3, 655354, 0, 1, 589818, 0, 1, 524282, 0, 1, 458746, 0, 1, 393210, 0, 1, 327674, 0, 0, 393211, 65536, 1, 458747, 65536, 1, 524283, 65536, 1, 589819, 65536, 1, 524284, 65536, 1, 589820, 65536, 1, 524285, 65536, 1, 589821, 65536, 1, 589822, 131072, 1, 327675, 131072, 0, 393212, 262144, 0, 458749, 262144, 0, 524286, 262144, 0, 458748, 65536, 1, 655350, 0, 2, 720886, 0, 2, 786422, 0, 3, 786421, 0, 3, 655327, 65536, 0, 720863, 65536, 1, 786399, 65536, 1, 851935, 65536, 1)
+
+[node name="Present" parent="." instance=ExtResource("8_tf4xj")]
+position = Vector2(411, 177)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(20, 297)

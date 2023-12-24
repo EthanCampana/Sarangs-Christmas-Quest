@@ -42,6 +42,7 @@ var canJump = true
 var canDash = true
 var canCling = true
 var jumpHeld = false
+var isDead = false
 var time_left = -1
 const MAX_SPEED = 150
 
@@ -125,6 +126,5 @@ func get_wall_cling_direction():
 
 
 func _on_area_2d_body_entered(body):
-	#if body.is_in_group("damaging_tiles"):
-	print("works")
-	queue_free()
+	isDead = true
+	print("Im dead")

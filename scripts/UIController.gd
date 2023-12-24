@@ -17,7 +17,7 @@ func _process(delta):
 
 
 func _on_time_update(newTime: float):
-	self.time.text = "Time " + str(int(newTime))
+	self.time.text = " Time " + str(int(newTime))
 
 
 func _on_item_collect(value: int):

@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://chng0vk4iuo16"]
+
+[ext_resource type="Texture2D" uid="uid://d0fqpdmoedbxu" path="res://assets/forest-level/1-lvl2-sky.png" id="1_qt4ka"]
+[ext_resource type="Texture2D" uid="uid://c1j1i0c6k2yxa" path="res://assets/forest-level/2-lvl2-Sun.png" id="2_13dod"]
+[ext_resource type="Texture2D" uid="uid://cltocon0pgoxm" path="res://assets/forest-level/4-lvl2-Montains.png" id="3_d3m1a"]
+[ext_resource type="Texture2D" uid="uid://drb74ayos7inj" path="res://assets/forest-level/6-lvl2-Far_trees.png" id="4_vf08f"]
+[ext_resource type="Texture2D" uid="uid://cw1wkwvufk6kj" path="res://assets/forest-level/5-lvl2-Lake.png" id="5_t48cf"]
+[ext_resource type="Texture2D" uid="uid://b0uyt8qbcvrnx" path="res://assets/forest-level/3-lvl2-Clouds.png" id="6_korsv"]
+[ext_resource type="Texture2D" uid="uid://d0v1syuetr2wy" path="res://assets/forest-level/8-lvl2-Front_trees.png" id="7_5fwdp"]
+[ext_resource type="PackedScene" uid="uid://b7tldwbnyarnt" path="res://scenes/ForestWorld/ForestTileMap.tscn" id="8_ca0dr"]
+[ext_resource type="PackedScene" uid="uid://bocw4k2ksyygw" path="res://scenes/hazardTileSet.tscn" id="9_0umpi"]
+[ext_resource type="PackedScene" uid="uid://vtr14epdcyro" path="res://scenes/Present.tscn" id="10_y7n36"]
+
+[node name="Section4" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+scale = Vector2(1.58498, 0.96748)
+
+[node name="1-lvl2-sky" type="Sprite2D" parent="Background"]
+position = Vector2(198.425, 190.185)
+scale = Vector2(0.402336, 0.630504)
+texture = ExtResource("1_qt4ka")
+
+[node name="2-lvl2-sun" type="Sprite2D" parent="Background"]
+position = Vector2(212.306, 157.109)
+scale = Vector2(0.39864, 0.751092)
+texture = ExtResource("2_13dod")
+
+[node name="4-lvl2-montains2" type="Sprite2D" parent="Background"]
+position = Vector2(248.899, 130.235)
+scale = Vector2(0.445466, 1.14387)
+texture = ExtResource("3_d3m1a")
+
+[node name="4-lvl2-montains" type="Sprite2D" parent="Background"]
+position = Vector2(219.877, 132.303)
+scale = Vector2(0.444234, 1.70546)
+texture = ExtResource("3_d3m1a")
+
+[node name="6-lvl2-farTrees" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(204.419, 109.563)
+scale = Vector2(0.399872, 1.03361)
+texture = ExtResource("4_vf08f")
+
+[node name="6-lvl2-farTrees3" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(211.517, 146.773)
+scale = Vector2(0.381696, 1.03361)
+texture = ExtResource("4_vf08f")
+
+[node name="6-lvl2-farTrees2" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(202.526, 172.613)
+scale = Vector2(0.395251, 1.01294)
+texture = ExtResource("4_vf08f")
+
+[node name="5-lvl2-lake" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(201.264, 46.5126)
+scale = Vector2(0.395559, 0.95437)
+texture = ExtResource("5_t48cf")
+
+[node name="3-lvl2-clouds" type="Sprite2D" parent="Background"]
+position = Vector2(382.97, 551.949)
+scale = Vector2(0.751069, 1.03361)
+texture = ExtResource("6_korsv")
+
+[node name="8-lvl2-frontTrees" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(203.473, 81.6555)
+scale = Vector2(0.399872, 1.03361)
+texture = ExtResource("7_5fwdp")
+
+[node name="ForestTileMap" parent="." instance=ExtResource("8_ca0dr")]
+position = Vector2(499.776, 167.916)
+layer_0/tile_data = PackedInt32Array(-458784, 65536, 0, -393248, 65536, 1, -327710, 65536, 1, -327711, 65536, 1, -327712, 65536, 1, -196640, 65536, 1, -131104, 65536, 1, -65568, 65536, 1, -262176, 65536, 1, -262175, 65536, 1, -262174, 65536, 1, -196638, 65536, 1, -131102, 65536, 1, -65566, 65536, 1, -65567, 65536, 1, -131103, 65536, 1, -196639, 65536, 1, -131089, 65536, 0, -131088, 65536, 0, -131090, 65536, 0, -65554, 65536, 1, -65553, 65536, 1, -65552, 65536, 1, -17, 65536, 1, 196577, 65536, 0, 524258, 131072, 1, 589794, 131072, 1, 458722, 131072, 1, 393186, 131072, 1, -131069, 0, 0, -65533, 0, 1, -131068, 65536, 0, -65532, 65536, 1, 4, 262144, 1, -131067, 131072, 0, -65531, 131072, 1, 327650, 0, 1, 262114, 0, 1, 196578, 65536, 0, -393247, 65536, 0, -393246, 65536, 0)
+
+[node name="HazardTileMap" parent="." instance=ExtResource("9_0umpi")]
+position = Vector2(-24.5878, 287.749)
+
+[node name="Present" parent="." instance=ExtResource("10_y7n36")]
+position = Vector2(62, 293)
+
+[node name="Present2" parent="." instance=ExtResource("10_y7n36")]
+position = Vector2(412, 145)

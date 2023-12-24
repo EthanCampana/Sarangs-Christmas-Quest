@@ -47,7 +47,8 @@ script = ExtResource("1_dcvat")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h37mm")
-frame_progress = 0.401407
+autoplay = "default"
+frame_progress = 0.632458
 
 [node name="CollectableComponent" type="Area2D" parent="." node_paths=PackedStringArray("item")]
 collision_layer = 16
@@ -57,3 +58,5 @@ item = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
 shape = SubResource("CircleShape2D_ib58c")
+
+[connection signal="area_entered" from="CollectableComponent" to="CollectableComponent" method="_on_area_entered"]
