@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2rnxpvui56xp"
+path="res://.godot/imported/snow-falling-1.wav-27ca476274d894045c225da28738a71e.sample"
+
+[deps]
+
+source_file="res://sfx/Snow falling/snow-falling-1.wav"
+dest_files=["res://.godot/imported/snow-falling-1.wav-27ca476274d894045c225da28738a71e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
