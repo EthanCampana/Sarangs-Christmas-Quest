@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwjtn3la162j7"]
+[gd_scene load_steps=12 format=3 uid="uid://bwa3gkt34q1o3"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_j7jrb"]
 [ext_resource type="PackedScene" uid="uid://bo4vs65623xn3" path="res://scenes/UI.tscn" id="2_hug6v"]
 [ext_resource type="PackedScene" uid="uid://b6dlyabsm2dg0" path="res://scenes/BackgroundAudioManager.tscn" id="3_8ju1g"]
 [ext_resource type="AudioStream" uid="uid://svq08j1b22e2" path="res://bgm/Factory/Factory_Preloop.wav" id="4_qdpuk"]
 [ext_resource type="AudioStream" uid="uid://b7h8bw6ekwjr0" path="res://bgm/Factory/Factory Loop.wav" id="5_uhxmw"]
-[ext_resource type="PackedScene" uid="uid://bwjtn3la162j7" path="res://scenes/FactoryLevel/factory_level.tscn" id="6_artb6"]
-[ext_resource type="PackedScene" path="res://scenes/FactoryLevel/section1.tscn" id="7_fw2hw"]
+[ext_resource type="PackedScene" uid="uid://ch5aqxphlgpss" path="res://scenes/FactoryLevel/section2.tscn" id="6_artb6"]
+[ext_resource type="PackedScene" uid="uid://cdqmcmvqi43sq" path="res://scenes/FactoryLevel/section1.tscn" id="7_fw2hw"]
 [ext_resource type="PackedScene" uid="uid://sjllwpj08xxg" path="res://scenes/Sarang.tscn" id="8_3djhm"]
 [ext_resource type="Script" path="res://scripts/TransitionCamera.gd" id="9_q3i03"]
 
