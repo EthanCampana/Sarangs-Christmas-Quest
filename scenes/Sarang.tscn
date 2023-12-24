@@ -530,6 +530,8 @@ _data = {
 radius = 16.0312
 
 [node name="Sarang" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 65
 script = ExtResource("1_ojsqd")
 cat_dash = Array[AudioStream]([ExtResource("2_5j1vy"), ExtResource("3_2jpy0"), ExtResource("4_f4w45")])
 cat_step = Array[AudioStream]([ExtResource("5_vbajj"), ExtResource("6_qcbcq"), ExtResource("7_jpnnt"), ExtResource("8_7fic1")])

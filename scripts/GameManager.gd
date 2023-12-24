@@ -3,6 +3,8 @@ extends Node
 @export var LevelTime: int
 @onready var LevelTimer: Timer = $LevelTimer
 @onready var player : Player = $Sarang
+@export var nextLevel : String
+@export var currentLevel : String
 var spawn_pos : Vector2 = Vector2.ZERO
 var deathChecked : bool = false
 # Called when the node enters the scene tree for the first time.
@@ -27,7 +29,14 @@ func _process(delta):
 		deathChecked = true
 	if not player.isDead and deathChecked:
 		handle_revive()
-		
+	
+	
+func restart_level():
+	SceneTransition.change_scene(currentLevel)
+	LevelTimer.start(LevelTime)
+	player.global_position = spawn_pos
 
 func _on_LevelTimer_timeout():
-	pass
+	player.emit_signal("change_state","Death")
+	restart_level()
+	

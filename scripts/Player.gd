@@ -127,4 +127,3 @@ func get_wall_cling_direction():
 
 func _on_area_2d_body_entered(body):
 	isDead = true
-	print("Im dead")
