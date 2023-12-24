@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dxojkv4wlgml1"]
+[gd_scene load_steps=53 format=3 uid="uid://sjllwpj08xxg"]
 
 [ext_resource type="Texture2D" uid="uid://c3rild6j71jd7" path="res://assets/cat (sarang)/png-cat-iddle.png" id="1_nw6th"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_ojsqd"]
@@ -36,8 +36,6 @@
 [ext_resource type="AudioStream" uid="uid://vduvbqt2gioe" path="res://sfx/Cat Jump right to left/Cat-jump-RL-1.wav" id="17_5bnxn"]
 [ext_resource type="AudioStream" uid="uid://bcpw34bpbl16r" path="res://sfx/Cat Jump right to left/Cat-jump-RL-2.wav" id="18_xalyu"]
 [ext_resource type="AudioStream" uid="uid://b7f7ujcdavupi" path="res://sfx/Cat Jump right to left/Cat-jump-RL-3.wav" id="19_ikicl"]
-[ext_resource type="Texture2D" uid="uid://tgtvy0wfrjqm" path="res://assets/cat (sarang)/png-cat-dying.png" id="29_fei0q"]
-[ext_resource type="Script" path="res://scripts/Dead.gd" id="38_tdodr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ee6vl"]
 atlas = ExtResource("4_bo4gg")
@@ -99,33 +97,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [9]
-}
-
-[sub_resource type="Animation" id="Animation_q8xmn"]
-resource_name = "Die"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("29_fei0q")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="Animation" id="Animation_kp0xh"]
@@ -515,7 +486,6 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ygyyk"]
 _data = {
 "Dash": SubResource("Animation_p6mw8"),
-"Die": SubResource("Animation_q8xmn"),
 "Fall": SubResource("Animation_kp0xh"),
 "Idle": SubResource("Animation_0f62b"),
 "Jump": SubResource("Animation_oinfd"),
@@ -525,9 +495,6 @@ _data = {
 "Walk": SubResource("Animation_ls0mk"),
 "Wall_Cling": SubResource("Animation_kuaec")
 }
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_jmmpk"]
-radius = 16.0312
 
 [node name="Sarang" type="CharacterBody2D"]
 collision_layer = 2
@@ -581,7 +548,6 @@ collision_mask = 4
 [node name="collision-objects" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_bm3ej")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="collision-tiles" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.8125)
@@ -636,9 +602,6 @@ script = ExtResource("16_0aive")
 Cling_timer = NodePath("WallClingTimer")
 
 [node name="WallClingTimer" type="Timer" parent="StateMachine/WallCling"]
-
-[node name="Death" type="Node" parent="StateMachine"]
-script = ExtResource("38_tdodr")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -22.0
