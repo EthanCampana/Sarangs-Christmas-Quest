@@ -1,6 +1,6 @@
 extends Control
 
-@export var next_scene: PackedScene
+@export var scene: String
 @onready var animation_player = $MarginContainer/VBoxContainer/AnimationPlayer
 
 var scene_changing = false
@@ -19,8 +19,9 @@ func start_fading_animation():
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fadeLoop":
-		if scene_changing and next_scene != null:
-			SceneTransition.change_scene('res://level_creator.tscn')
+		if scene_changing and scene != null:
+			print(scene)
+			SceneTransition.change_scene(scene)
 		else:
 			scene_changing = false
 			start_fading_animation()
