@@ -36,7 +36,8 @@ func restart_level():
 	LevelTimer.start(LevelTime)
 	player.global_position = spawn_pos
 
-func _on_LevelTimer_timeout():
+
+func _on_level_timer_timeout():
 	player.emit_signal("change_state","Death")
 	restart_level()
 	

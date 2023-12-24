@@ -540,6 +540,7 @@ cat_jump_left = Array[AudioStream]([ExtResource("14_pdqbt"), ExtResource("15_88t
 cat_jump_right = Array[AudioStream]([ExtResource("17_5bnxn"), ExtResource("18_xalyu"), ExtResource("19_ikicl")])
 
 [node name="DashBar" type="TextureProgressBar" parent="."]
+visible = false
 offset_left = -8.0
 offset_top = -25.0
 offset_right = 22.0
@@ -555,6 +556,7 @@ flip_h = true
 hframes = 4
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Sprite2D"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -641,6 +643,7 @@ Cling_timer = NodePath("WallClingTimer")
 script = ExtResource("38_tdodr")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -22.0
 offset_top = -45.0
 offset_right = 18.0
