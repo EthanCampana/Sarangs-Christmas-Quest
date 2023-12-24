@@ -40,7 +40,7 @@ func _on_level_timer_timeout():
 
 
 func next_level():
-	SceneTransition.change_scene(a)
+	SceneTransition.change_scene(nextLevel)
 	
 
 func _on_exit_area_entered(area):
