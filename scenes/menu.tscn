@@ -139,11 +139,11 @@ vertical_alignment = 1
 
 [node name="text" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 121.0
-offset_top = 195.0
-offset_right = 4217.0
-offset_bottom = 2595.0
-scale = Vector2(0.357195, 0.348739)
+offset_left = 148.0
+offset_top = 187.0
+offset_right = 4244.0
+offset_bottom = 2587.0
+scale = Vector2(0.307, 0.3)
 texture = ExtResource("4_kbqpf")
 expand_mode = 5
 stretch_mode = 2
