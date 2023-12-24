@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://db84338f1nwjp"]
+
+[sub_resource type="Gradient" id="Gradient_hmhxb"]
+offsets = PackedFloat32Array(0, 0.124294, 0.485876, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.56225, 0.53788, 0.0305132, 1, 0.754295, 0.740617, 0.455836, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_oknk3"]
+gradient = SubResource("Gradient_hmhxb")
+
+[sub_resource type="Gradient" id="Gradient_dly4a"]
+offsets = PackedFloat32Array(0.542373, 0.59322, 0.689266, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.610169, 0.610169, 0.610169, 1, 0.310868, 0.259991, 0.0475653, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_skrlc"]
+gradient = SubResource("Gradient_dly4a")
+
+[sub_resource type="Curve" id="Curve_lguwj"]
+_data = [Vector2(0.0195122, 0.142857), 0.0, 0.0, 0, 0, Vector2(0.531707, 0.483516), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ndopt"]
+curve = SubResource("Curve_lguwj")
+
+[sub_resource type="Curve" id="Curve_u3nxy"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.35122, 1.08791), 0.0, 0.0, 0, 0, Vector2(0.717073, 1.71429), 0.0, 0.0, 0, 0, Vector2(0.956098, 3), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_4xc0r"]
+curve = SubResource("Curve_u3nxy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xrd8g"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(400, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, -98, 0)
+linear_accel_min = -17.24
+linear_accel_max = 18.96
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_ndopt")
+scale_over_velocity_min = 1.0
+scale_over_velocity_max = 3.0
+scale_over_velocity_curve = SubResource("CurveTexture_4xc0r")
+color = Color(0.890196, 0.247059, 0.584314, 1)
+color_ramp = SubResource("GradientTexture1D_skrlc")
+color_initial_ramp = SubResource("GradientTexture1D_oknk3")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+position = Vector2(341, 188)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_xrd8g")
+trail_enabled = true
+trail_lifetime = 0.09
