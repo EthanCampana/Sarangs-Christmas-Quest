@@ -10,4 +10,3 @@ func _on_area_entered(area: Area2D):
 	get_parent().queue_free()
 	if item is Present:
 		UiManager.emit_signal("item_collected", 1)
-		GameStats.presents +=1

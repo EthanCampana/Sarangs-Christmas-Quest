@@ -32,10 +32,17 @@ func _process(delta):
 	
 func restart_level():
 	SceneTransition.change_scene(currentLevel)
-	LevelTimer.start(LevelTime)
-	player.global_position = spawn_pos
 
 
 func _on_level_timer_timeout():
 	player.emit_signal("change_state","Death")
 	restart_level()
+
+
+func next_level():
+	SceneTransition.change_scene(a)
+	
+
+func _on_exit_area_entered(area):
+	next_level()
+	

@@ -7,7 +7,6 @@ func Enter():
 	player.animation_player.current_animation = "Die"
 	player.audio.stream = player.cat_meow.pick_random()
 	player.audio.play()
-	GameStats.deaths +=1
 
 
 
