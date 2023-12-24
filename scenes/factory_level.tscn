@@ -1,14 +1,33 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwjtn3la162j7"]
+[gd_scene load_steps=12 format=3 uid="uid://bwjtn3la162j7"]
 
 [ext_resource type="PackedScene" uid="uid://cdqmcmvqi43sq" path="res://scenes/FactoryLevel/section1.tscn" id="1_a4pi4"]
+[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_lkbii"]
 [ext_resource type="PackedScene" uid="uid://ch5aqxphlgpss" path="res://scenes/FactoryLevel/section2.tscn" id="2_w305q"]
 [ext_resource type="PackedScene" uid="uid://sjllwpj08xxg" path="res://scenes/Sarang.tscn" id="3_7hpc3"]
 [ext_resource type="Script" path="res://scripts/TransitionCamera.gd" id="4_lclil"]
 [ext_resource type="AudioStream" uid="uid://svq08j1b22e2" path="res://bgm/Factory/Factory_Preloop.wav" id="6_0u1w6"]
 [ext_resource type="PackedScene" uid="uid://b6dlyabsm2dg0" path="res://scenes/BackgroundAudioManager.tscn" id="6_d8jlf"]
 [ext_resource type="AudioStream" uid="uid://b7h8bw6ekwjr0" path="res://bgm/Factory/Factory Loop.wav" id="8_j5hu4"]
+[ext_resource type="PackedScene" uid="uid://bo4vs65623xn3" path="res://scenes/UI.tscn" id="9_rnp2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msqmv"]
+size = Vector2(613, 198.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iams4"]
+size = Vector2(559.75, 210)
 
 [node name="FactoryLevel" type="Node2D"]
+script = ExtResource("1_lkbii")
+LevelTime = 10
+
+[node name="UI Stuff" type="Node2D" parent="."]
+
+[node name="Ui" parent="UI Stuff" instance=ExtResource("9_rnp2x")]
+
+[node name="BackgroundAudioManager" parent="UI Stuff" instance=ExtResource("6_d8jlf")]
+position = Vector2(-3, 19)
+PreLoopFile = ExtResource("6_0u1w6")
+LoopFile = ExtResource("8_j5hu4")
 
 [node name="Section2" parent="." instance=ExtResource("2_w305q")]
 position = Vector2(696, 4)
@@ -17,14 +36,27 @@ position = Vector2(696, 4)
 position = Vector2(2.08165e-12, -14)
 
 [node name="Sarang" parent="." instance=ExtResource("3_7hpc3")]
-position = Vector2(80, -38)
+position = Vector2(82, 11)
 
 [node name="Camera2D" type="Camera2D" parent="Sarang"]
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 script = ExtResource("4_lclil")
 
-[node name="BackgroundAudioManager" parent="." instance=ExtResource("6_d8jlf")]
-position = Vector2(2.08165e-12, -14)
-PreLoopFile = ExtResource("6_0u1w6")
-LoopFile = ExtResource("8_j5hu4")
+[node name="LevelTimer" type="Timer" parent="."]
+
+[node name="Pit Detection" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit Detection"]
+position = Vector2(329.5, 421.75)
+shape = SubResource("RectangleShape2D_msqmv")
+
+[node name="Pit Detection2" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit Detection2"]
+position = Vector2(990.125, 419)
+shape = SubResource("RectangleShape2D_iams4")

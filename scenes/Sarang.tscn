@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://sjllwpj08xxg"]
+[gd_scene load_steps=55 format=3 uid="uid://sjllwpj08xxg"]
 
 [ext_resource type="Texture2D" uid="uid://c3rild6j71jd7" path="res://assets/cat (sarang)/png-cat-iddle.png" id="1_nw6th"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_ojsqd"]
@@ -36,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://vduvbqt2gioe" path="res://sfx/Cat Jump right to left/Cat-jump-RL-1.wav" id="17_5bnxn"]
 [ext_resource type="AudioStream" uid="uid://bcpw34bpbl16r" path="res://sfx/Cat Jump right to left/Cat-jump-RL-2.wav" id="18_xalyu"]
 [ext_resource type="AudioStream" uid="uid://b7f7ujcdavupi" path="res://sfx/Cat Jump right to left/Cat-jump-RL-3.wav" id="19_ikicl"]
+[ext_resource type="Script" path="res://scripts/Dead.gd" id="30_upavw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ee6vl"]
 atlas = ExtResource("4_bo4gg")
@@ -496,6 +497,9 @@ _data = {
 "Wall_Cling": SubResource("Animation_kuaec")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_be7rt"]
+radius = 30.0
+
 [node name="Sarang" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 65
@@ -507,6 +511,7 @@ cat_jump_left = Array[AudioStream]([ExtResource("14_pdqbt"), ExtResource("15_88t
 cat_jump_right = Array[AudioStream]([ExtResource("17_5bnxn"), ExtResource("18_xalyu"), ExtResource("19_ikicl")])
 
 [node name="DashBar" type="TextureProgressBar" parent="."]
+visible = false
 offset_left = -8.0
 offset_top = -25.0
 offset_right = 22.0
@@ -522,6 +527,7 @@ flip_h = true
 hframes = 4
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Sprite2D"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -564,6 +570,9 @@ autoplay = "Idle"
 script = ExtResource("8_cwnwb")
 initial_state = NodePath("Idle")
 
+[node name="Death" type="Node" parent="StateMachine"]
+script = ExtResource("30_upavw")
+
 [node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("CoyoteTime")]
 script = ExtResource("9_6omkn")
 CoyoteTime = NodePath("CoyoteJump")
@@ -604,6 +613,7 @@ Cling_timer = NodePath("WallClingTimer")
 [node name="WallClingTimer" type="Timer" parent="StateMachine/WallCling"]
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -22.0
 offset_top = -45.0
 offset_right = 18.0
@@ -629,7 +639,7 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableArea"]
 scale = Vector2(0.5, 0.5)
-shape = SubResource("CircleShape2D_jmmpk")
+shape = SubResource("CircleShape2D_be7rt")
 
 [connection signal="change_state" from="." to="StateMachine" method="_on_sarang_change_state"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -23,7 +23,6 @@ func handle_death():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	UiManager.emit_signal("time_update", LevelTimer.time_left)
-	print(player.isDead)
 	if player.isDead and not deathChecked:
 		handle_death()
 		deathChecked = true
